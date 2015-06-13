@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'cancan'
 gem 'devise'
+gem 'redcarpet'
 # gem 'capybara'
 # gem 'letter_opener'
 
