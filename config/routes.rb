@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admins, path: 'admin', path_names: { sign_in: 'login', sign_out: 'logout', unlock: 'unlock' }
 
-  devise_for :admins
   root 'static#home'
 
-  get 'about'  => 'static#about'
-  get 'resume' => 'static#resume'
+  get 'my/bio'    => 'static#about'
+  get 'my/resume' => 'static#resume'
 
 end
