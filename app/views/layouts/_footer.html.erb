@@ -1,0 +1,11 @@
+<footer class="navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+      <% if current_admin %>
+        Signed in as <%= current_admin.name %>. <%= link_to 'Logout?', destroy_admin_session_path %>
+      <% else %>
+        <%= link_to 'Admin Login', new_admin_session_path %>
+      <% end %>
+    </p>
+  </div>
+</nav>
