@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'my/bio'    => 'static#about'
   get 'my/resume' => 'static#resume'
 
+  resources :tidbits
+
 end
