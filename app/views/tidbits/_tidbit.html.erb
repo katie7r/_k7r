@@ -1,0 +1,8 @@
+<article class="tidbit">
+  <h2><%= tidbit.title %></h2>
+
+  <p><%= tidbit.content %></p>
+
+  <span><%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link %></span>
+  <span><%= tidbit.author_name %></span>
+</article>

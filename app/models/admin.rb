@@ -16,6 +16,8 @@
 #  locked_at           :datetime
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  first_name          :string(255)      not null
+#  last_name           :string(255)      not null
 #
 # Indexes
 #
@@ -25,6 +27,8 @@
 
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
+
+  has_many :tidbits, as: :author
 
   def name
     "#{first_name} #{last_name}"
