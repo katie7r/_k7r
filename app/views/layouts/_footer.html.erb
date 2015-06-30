@@ -1,6 +1,6 @@
-<footer class="navbar-fixed-bottom">
-  <div class="container-fluid">
-    <p class="navbar-text navbar-right">
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted navbar-text navbar-right">
       <% if current_admin %>
         Signed in as <%= current_admin.name %>. <%= link_to 'Logout?', destroy_admin_session_path %>
       <% else %>
@@ -8,4 +8,4 @@
       <% end %>
     </p>
   </div>
-</nav>
+</footer>

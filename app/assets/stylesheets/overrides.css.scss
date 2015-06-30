@@ -1,0 +1,33 @@
+/***********************
+ * Bootstrap Overrides *
+ ***********************/
+
+/* Variables */
+
+$navbar_height: 50px;
+$footer_height: 50px;
+
+/* Navbar Overlap Fix */
+
+body {
+  padding-top: ($navbar_height + 10px);
+}
+
+/* (un)Sticky Footer Fix */
+
+html,
+body {
+  height: 100%;
+}
+
+#container {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto (-$footer_height);
+  padding: 0 0 60px;
+}
+
+footer {
+  height: $footer_height;
+  background-color: #F5F5F5;
+}
