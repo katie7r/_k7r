@@ -19,8 +19,10 @@ class Tidbit < ActiveRecord::Base
   belongs_to :author, class_name: 'Admin'
 
   validates :tidbit_type, inclusion: TYPES
+  validates :author_id, :content, :title, presence: true
   # validates :content, length: (less than something)
-  # validates :author_id, :title, presence: true
+
+  delegate :name, :shy_name, to: :author, prefix: true
 
   # =============== #
   # Type            #

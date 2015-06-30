@@ -1,30 +1,37 @@
 <%= form_for tidbit, html: { class: 'form-horizontal'} do |f| %>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="title">Title</label>
+    <%= f.label :title, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :title, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="type">Type</label>
+    <%= f.label :tidbit_type, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
-      <%= f.select :type, Tidbit::TYPES.map{ |tt| [ tt.titleize, tt ] }, selected: tidbit.tidbit_type, class: 'form-control' %>
+      <%= f.select :tidbit_type, Tidbit::TYPES.map{ |tt| [ tt.titleize, tt ] }, selected: tidbit.tidbit_type, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="content">Content</label>
+    <%= f.label :content, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_area :content, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="more_info">More Info</label>
+    <%= f.label :more_info, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
-      <%= f.text_area :more_info, class: 'form-control' %>
+      <%= f.text_field :more_info, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :more_info_link, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :more_info_link, class: 'form-control' %>
     </div>
   </div>
 
