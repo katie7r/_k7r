@@ -3,32 +3,28 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  type           :string(255)      not null
+#  tidbit_type    :string(255)      not null
 #  title          :string(255)      not null
 #  content        :text             not null
 #  more_info      :string(255)
+#  more_info_link :string(255)
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
-#  more_info_link :string(255)
 #
 
 class Tidbit < ActiveRecord::Base
-  TIDBIT_TYPES = ['programming', 'zoology']
+  TYPES = ['programming', 'zoology']
 
   belongs_to :author, class_name: 'Admin'
 
-  validates :type, inclusion: TIDBIT_TYPES
+  validates :tidbit_type, inclusion: TYPES
   # validates :content, length: (less than something)
   # validates :author_id, :title, presence: true
 
   # =============== #
   # Type            #
   # =============== #
-
-  def self.types
-    TIDBIT_TYPES
-  end
 
   def self.programming
     where(type: 'programming')

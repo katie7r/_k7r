@@ -10,7 +10,7 @@
   <div class="form-group">
     <label class="col-sm-2 control-label" for="type">Type</label>
     <div class="col-sm-10">
-      <%= f.select :type, Tidbit.types.map{ |tt| [ tt.titleize, tt ] }, selected: tidbit.type, class: 'form-control' %>
+      <%= f.select :type, Tidbit::TYPES.map{ |tt| [ tt.titleize, tt ] }, selected: tidbit.tidbit_type, class: 'form-control' %>
     </div>
   </div>
 
