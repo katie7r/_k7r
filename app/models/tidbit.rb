@@ -19,6 +19,10 @@ class Tidbit < ActiveRecord::Base
   # validates :content, length: (less than something)
   # validates :author_id, :title, presence: true
 
+  def self.types
+    TIDBIT_TYPES
+  end
+
   def self.programming
     where(type: 'programming')
   end

@@ -6,12 +6,14 @@ class TidbitsController < ApplicationController
   end
 
   def new
+    @tidbit = Tidbit.new
   end
 
   def create
   end
 
   def edit
+    @tidbit = Tidbit.find params[:id]
   end
 
   def update
