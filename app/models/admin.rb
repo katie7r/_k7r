@@ -25,4 +25,12 @@
 
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def shy_name
+    "#{first_name} #{last_name[0]}."
+  end
 end
