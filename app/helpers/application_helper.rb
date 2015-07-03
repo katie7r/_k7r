@@ -1,7 +1,9 @@
 module ApplicationHelper
 
-  def bootstrap_class_for(event_type)
-    { success: 'alert-success', error: 'alert-danger', alert: 'alert-warning', notice: 'alert-info' }[event_type] || event_type.to_s
+  BOOTSTRAP_STATUS_MAP = { success: 'success', error: 'danger', alert: 'warning', notice: 'info' }
+
+  def bootstrap_class_for(message_type)
+    "alert-#{BOOTSTRAP_STATUS_MAP[message_type.to_sym]}" || message_type.to_s
   end
 
 end

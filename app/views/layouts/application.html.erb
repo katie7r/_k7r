@@ -9,9 +9,9 @@
 <body role="document">
 
 <%= render 'layouts/nav' %>
-<%= render partial: 'shared/flash_messages', flash: flash %>
 
 <div id="container" class="container" role="main">
+  <%= render 'shared/flash_messages', flash: flash %>
   <%= yield %>
 </div>
 
