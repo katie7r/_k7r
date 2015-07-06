@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
 
   def store_location
     return unless request.get?
-    session[:previous_url] = request.fullpath unless request.path.include?('/admin/') || request.xhr?
+    unless request.path.include?('admin') || request.xhr?
+      session[:previous_url] = request.fullpath
+    end
   end
 
   def default_redirect

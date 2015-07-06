@@ -1,4 +1,6 @@
 class TidbitsController < ApplicationController
+  before_filter :restrict_to_admin, except: [:index, :show]
+
   def index
     @tidbits = Tidbit.all
   end
@@ -13,7 +15,7 @@ class TidbitsController < ApplicationController
   def create
     @tidbit = Tidbit.new
 
-    if current_admin && params[:tidbit]
+    if params[:tidbit]
       @tidbit.title          = params[:tidbit][:title]
       @tidbit.tidbit_type    = params[:tidbit][:tidbit_type]
       @tidbit.content        = params[:tidbit][:content]
@@ -21,14 +23,16 @@ class TidbitsController < ApplicationController
       @tidbit.more_info_link = params[:tidbit][:more_info_link]
       @tidbit.author_id      = current_admin.id
 
-      if @tidbit.save!
-        flash.now[:success] = 'Tidbit successfully created.'
-        return redirect_to tidbits_path
-      else
-        flash_error = 'Could not save tidbit.'
-      end
+      # begin
+      #   @tidbit.save!
+      # rescue
+      # else
+      #   flash[:success] = 'Tidbit successfully created.'
+      #   return redirect_to tidbits_path
+      # else
+      #   flash_error = 'Could not save tidbit.'
+      # end
     else
-      flash_error = 'You must be an ad(d)min to add tidbits.'
     end
 
     flash.now[:error] = 'SOMETHING WENT TERRIBLY, HORRIBLY WRONG: ' + flash_error.downcase
