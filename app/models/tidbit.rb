@@ -3,7 +3,6 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  tidbit_type    :string(255)      not null
 #  title          :string(255)      not null
 #  content        :text             not null
 #  more_info      :string(255)
@@ -11,29 +10,25 @@
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  category       :integer          default(0), not null
 #
 
 class Tidbit < ActiveRecord::Base
-  TYPES = ['programming', 'zoology']
+  enum category: ['programming', 'zoology']
 
   belongs_to :author, class_name: 'Admin'
 
-  validates :tidbit_type, inclusion: TYPES
-  validates :author_id, :content, :title, presence: true
+  validates :author_id, :category, :content, :title, presence: true
   # validates :content, length: (less than something)
 
   delegate :name, :shy_name, to: :author, prefix: true
 
   # =============== #
-  # Type            #
+  # Category        #
   # =============== #
 
-  def self.programming
-    where(type: 'programming')
-  end
-
-  def self.zoology
-    where(type: 'zoology')
+  def self.with_category(category)
+    where(category: self.categories[category])
   end
 
   # =============== #

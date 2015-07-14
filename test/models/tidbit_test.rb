@@ -3,7 +3,6 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  tidbit_type    :string(255)      not null
 #  title          :string(255)      not null
 #  content        :text             not null
 #  more_info      :string(255)
@@ -11,6 +10,7 @@
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  category       :integer          default(0), not null
 #
 
 require 'test_helper'
