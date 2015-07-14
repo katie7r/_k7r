@@ -13,6 +13,24 @@ body {
   padding-top: ($navbar_height + 10px);
 }
 
+/* Navbar Header Active */
+
+.navbar-header {
+  &.active {
+    background-color: #000;
+    color: #FFF;
+
+    a {
+      color: #FFF;
+    }
+  }
+
+  a {
+    padding-left: 30px;
+    padding-right: 15px;
+  }
+}
+
 /* (un)Sticky Footer Fix */
 
 html,

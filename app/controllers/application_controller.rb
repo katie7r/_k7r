@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :store_location
+  before_filter :get_current_page, :store_location
 
   # Helpers of sorts
 
   private
+
+  def get_current_page
+    @current_page = "#{params[:controller]}##{params[:action]}"
+  end
 
   def store_location
     return unless request.get?
