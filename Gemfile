@@ -2,11 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
 
+gem 'pg'
+gem 'thin'
+
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '~> 4.0.3'
+
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'thin'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -16,8 +19,6 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3.1'
-gem 'cancan'
 gem 'devise'
 gem 'redcarpet'
 # gem 'capybara'

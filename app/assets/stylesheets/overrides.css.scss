@@ -16,14 +16,7 @@ body {
 /* Navbar Header Active */
 
 .navbar-header {
-  &.active {
-    background-color: #000;
-    color: #FFF;
-
-    a {
-      color: #FFF;
-    }
-  }
+  // &.active { background-color, color; a { color } }
 
   a {
     padding-left: 30px;
@@ -46,6 +39,6 @@ body {
 }
 
 footer {
+  // background-color
   height: $footer_height;
-  background-color: #F5F5F5;
 }
