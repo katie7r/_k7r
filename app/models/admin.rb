@@ -3,6 +3,8 @@
 # Table name: admins
 #
 #  id                  :integer          not null, primary key
+#  first_name          :string(255)      not null
+#  last_name           :string(255)      not null
 #  email               :string(255)      default(""), not null
 #  encrypted_password  :string(255)      default(""), not null
 #  remember_created_at :datetime
@@ -16,19 +18,19 @@
 #  locked_at           :datetime
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  first_name          :string(255)      not null
-#  last_name           :string(255)      not null
+#  username            :string(255)      not null
 #
 # Indexes
 #
-#  index_admins_on_email         (email) UNIQUE
+#  index_admins_on_email         (email)
 #  index_admins_on_unlock_token  (unlock_token) UNIQUE
+#  index_admins_on_username      (username) UNIQUE
 #
 
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
 
-  has_many :tidbits, as: :author
+  has_many :tidbits, foreign_key: 'author_id'
 
   def name
     "#{first_name} #{last_name}"

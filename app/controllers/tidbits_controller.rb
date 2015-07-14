@@ -13,30 +13,14 @@ class TidbitsController < ApplicationController
   end
 
   def create
-    @tidbit = Tidbit.new
-
-    if params[:tidbit]
-      @tidbit.title          = params[:tidbit][:title]
-      @tidbit.tidbit_type    = params[:tidbit][:tidbit_type]
-      @tidbit.content        = params[:tidbit][:content]
-      @tidbit.more_info      = params[:tidbit][:more_info]
-      @tidbit.more_info_link = params[:tidbit][:more_info_link]
-      @tidbit.author_id      = current_admin.id
-
-      # begin
-      #   @tidbit.save!
-      # rescue
-      # else
-      #   flash[:success] = 'Tidbit successfully created.'
-      #   return redirect_to tidbits_path
-      # else
-      #   flash_error = 'Could not save tidbit.'
-      # end
+    @tidbit = current_admin.tidbits.build(tidbit_params)
+    if @tidbit.save!
+      flash[:success] = 'Tidbit successfully created.'
+      return redirect_to tidbits_path
     else
+      flash.now[:error] = 'There was an issue creating the tidbit.'
+      return render :new
     end
-
-    flash.now[:error] = 'SOMETHING WENT TERRIBLY, HORRIBLY WRONG: ' + flash_error.downcase
-    return render :new
   end
 
   def edit
@@ -47,5 +31,11 @@ class TidbitsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def tidbit_params
+    params.require(:tidbit).permit(:tidbit_type, :title, :content, :more_info, :more_info_link)
   end
 end

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def store_location
     return unless request.get?
-    unless request.path.include?('admin') || request.xhr?
+    unless admin_management_path || request.xhr?
       session[:previous_url] = request.fullpath
     end
   end
@@ -34,5 +34,9 @@ class ApplicationController < ActionController::Base
       flash[:alert] = 'You are not authorized to perform this action.'
       return redirect_to default_redirect
     end
+  end
+
+  def admin_management_path # for get requests
+    request.path.include?('admin') || request.path == '/tidbits/new' || request.path == '/tidbits/edit'
   end
 end
