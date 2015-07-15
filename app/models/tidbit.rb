@@ -3,6 +3,7 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
+#  tidbit_type    :string(255)      not null
 #  title          :string(255)      not null
 #  content        :text             not null
 #  more_info      :string(255)
@@ -10,7 +11,6 @@
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
-#  category       :integer          default(0), not null
 #
 
 class Tidbit < ActiveRecord::Base
@@ -23,12 +23,20 @@ class Tidbit < ActiveRecord::Base
 
   delegate :name, :shy_name, to: :author, prefix: true
 
+  def self.in_order
+    order('created_at DESC')
+  end
+
   # =============== #
   # Category        #
   # =============== #
 
   def self.with_category(category)
     where(category: self.categories[category])
+  end
+
+  def category_id
+    self.class.categories[self.category]
   end
 
   # =============== #

@@ -1,8 +1,19 @@
 <article class="tidbit">
-  <h2><%= tidbit.title %></h2>
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <h2 class="panel-title pull-left"><%= tidbit.title %></h2>
+      <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'btn btn-default pull-right' if current_admin  %>
+    </div>
 
-  <p><%= tidbit.content %></p>
+    <div class="panel-body">
+      <p><%= tidbit.content %></p>
+    </div>
 
-  <span><%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link %></span>
-  <span><%= tidbit.author_shy_name %></span>
+    <div class="panel-footer clearfix">
+      <% if tidbit.more_info.present? %>
+        <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link %></span>
+      <% end %>
+      <span class="pull-right">Author: <%= tidbit.author_shy_name %></span>
+    </div>
+  </div>
 </article>

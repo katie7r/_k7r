@@ -1,8 +1,9 @@
 class TidbitsController < ApplicationController
   before_filter :restrict_to_admin, except: [:index, :show]
+  before_filter :load_tidbit, only: [:edit, :update, :show]
 
   def index
-    @tidbits = Tidbit.all
+    @tidbits = Tidbit.in_order
   end
 
   def show
@@ -24,16 +25,26 @@ class TidbitsController < ApplicationController
   end
 
   def edit
-    @tidbit = Tidbit.find params[:id]
   end
 
   def update
+    if @tidbit.update_attributes!(tidbit_params)
+      flash[:success] = 'Tidbit successfully updated.'
+      return redirect_to tidbits_path
+    else
+      flash.now[:error] = 'There was an issue updating the tidbit.'
+      return render :edit
+    end
   end
 
   def destroy
   end
 
   private
+
+  def load_tidbit
+    @tidbit = Tidbit.find params[:id]
+  end
 
   def tidbit_params
     params.require(:tidbit).permit(:tidbit_type, :title, :content, :more_info, :more_info_link)

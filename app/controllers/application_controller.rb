@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def restrict_to_admin
     unless current_admin
-      flash[:alert] = 'You are not authorized to perform this action.'
+      flash[:error] = 'You are not authorized to perform this action.'
       return redirect_to default_redirect
     end
   end
