@@ -1,3 +1,15 @@
-// Place all the styles related to the Tidbits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/***********************
+ * Tidbit-Specific CSS *
+ ***********************/
+
+/* _tidbit */
+.tidbit {
+  .panel-heading h2 {
+    font-weight: bold;
+    padding-top: 0.5em;
+  }
+
+  .panel-footer {
+    font-size: 0.75em;
+  }
+}
