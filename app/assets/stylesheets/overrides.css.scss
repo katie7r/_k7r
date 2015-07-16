@@ -2,13 +2,6 @@
  * Bootstrap Overrides *
  ***********************/
 
-// TEMPORARY
-
-$active_nav_bg: #000;
-$active_nav_color: #FFF;
-$nav_border: #AD7;
-$footer_bg: #F5F5F5;
-
 /* Variables */
 
 $navbar_border: 10px;
@@ -21,26 +14,15 @@ body {
   padding-top: ($navbar_border + $navbar_height + 10px);
 }
 
-/* Navbar Header Active, etc. */
 
-nav.navbar {
-  // border-top: 10px solid $nav_border;
-  border-bottom: $navbar_border solid $nav_border;
-}
+/* Navbar Active Link Shifting */
+.navbar-brand {
+  padding-left: 15px;
+  padding-right: 15px;
 
-.navbar-header {
   &.active {
-    background-color: $active_nav_bg;
-    color: $active_nav_color;
-
-    a {
-      color: $active_nav_color;
-    }
-  }
-
-  a {
-    padding-left: 30px;
-    padding-right: 15px;
+    background-color: #000;
+    color: #FFF;
   }
 }
 
@@ -51,7 +33,7 @@ body {
   height: 100%;
 }
 
-#container {
+#content {
   min-height: 100%;
   height: auto;
   margin: 0 auto (-$footer_height);
@@ -59,6 +41,5 @@ body {
 }
 
 footer {
-  background-color: $footer_bg;
   height: $footer_height;
 }

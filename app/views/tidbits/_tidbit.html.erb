@@ -11,7 +11,7 @@
 
     <div class="panel-footer clearfix">
       <% if tidbit.more_info.present? %>
-        <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link %></span>
+        <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link, target: '_blank' %></span>
       <% end %>
       <span class="pull-right">Author: <%= tidbit.author_shy_name %></span>
     </div>

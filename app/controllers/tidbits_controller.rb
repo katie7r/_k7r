@@ -1,6 +1,6 @@
 class TidbitsController < ApplicationController
-  before_filter :restrict_to_admin, except: [:index, :show]
-  before_filter :load_tidbit, only: [:edit, :update, :show]
+  before_filter :restrict_to_admin, except: [:index]
+  before_filter :load_tidbit, only: [:edit, :update]
 
   def index
     if params[:category] && Tidbit.categories.keys.include?(params[:category])
@@ -38,9 +38,6 @@ class TidbitsController < ApplicationController
       flash.now[:error] = 'There was an issue updating the tidbit.'
       render :edit and return
     end
-  end
-
-  def destroy
   end
 
   private

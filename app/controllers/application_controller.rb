@@ -1,14 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :get_current_page, :store_location
+  before_filter :store_location
 
   # Helpers of sorts
 
   private
-
-  def get_current_page
-    @current_page = "#{params[:controller]}##{params[:action]}"
-  end
 
   def store_location
     return unless request.get?
@@ -38,6 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_management_path # for get requests
-    request.path.include?('admin') || request.path == '/tidbits/new' || request.path == '/tidbits/edit'
+    request.path.include?('admin') || (params[:controller] == 'tidbits' && params[:action] != 'index') # request.path == '/tidbits/new' || request.path == '/tidbits/edit'
   end
 end

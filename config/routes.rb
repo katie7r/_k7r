@@ -3,11 +3,9 @@ Rails.application.routes.draw do
 
   root 'static#home'
 
-  get 'my/bio'    => 'static#about'
-  get 'my/resume' => 'static#resume'
   get 'my/work'   => 'static#portfolio'
 
-  resources :tidbits, except: :show
+  resources :tidbits, except: [:show, :destroy]
   get 'tidbits/:category', to: 'tidbits#index', as: :category_tidbits
 
 end
