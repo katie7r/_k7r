@@ -32,10 +32,12 @@ class Admin < ActiveRecord::Base
 
   has_many :tidbits, foreign_key: 'author_id'
 
+  # Gives admin user's full name
   def name
     "#{first_name} #{last_name}"
   end
 
+  # Gives admin user's first name and last initial
   def shy_name
     "#{first_name} #{last_name[0]}."
   end

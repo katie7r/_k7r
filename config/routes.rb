@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get 'my/bio'    => 'static#about'
   get 'my/resume' => 'static#resume'
+  get 'my/work'   => 'static#portfolio'
 
-  resources :tidbits
+  resources :tidbits, except: :show
+  get 'tidbits/:category', to: 'tidbits#index', as: :category_tidbits
 
 end

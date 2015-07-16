@@ -19,10 +19,11 @@ class Tidbit < ActiveRecord::Base
   belongs_to :author, class_name: 'Admin'
 
   validates :author_id, :category, :content, :title, presence: true
-  # validates :content, length: (less than something)
+  # TODO: validates :content, length: (less than something)
 
   delegate :name, :shy_name, to: :author, prefix: true
 
+  # Orders tidbits from most to least recently created
   def self.in_order
     order('created_at DESC')
   end
@@ -31,10 +32,12 @@ class Tidbit < ActiveRecord::Base
   # Category        #
   # =============== #
 
+  # Gets tidbits with given category
   def self.with_category(category)
     where(category: self.categories[category])
   end
 
+  # Gets the integer value for the tidbit's category, based on name
   def category_id
     self.class.categories[self.category]
   end
@@ -43,6 +46,7 @@ class Tidbit < ActiveRecord::Base
   # More Info       #
   # =============== #
 
+  # Returns whether the tidbit has a link for more info
   def linked?
     more_info_link.present?
   end
