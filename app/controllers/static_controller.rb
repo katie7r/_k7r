@@ -7,4 +7,7 @@ class StaticController < ApplicationController
 
   def resume
   end
+
+  def portfolio
+  end
 end

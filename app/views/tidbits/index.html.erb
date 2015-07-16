@@ -2,6 +2,12 @@
   <h1>Tidbits!</h1>
   <p>Learn some stuff about things and junk!</p>
 
+  <h2>Viewing <%= @category.titleize %> Tidbits.</h2>
+  <ul>View Tidbits by Category:</li>
+    <li><%= link_to 'Programming Tidbits', category_tidbits_path('programming') %></li>
+    <li><%= link_to 'Zoology Tidbits', category_tidbits_path('zoology') %></li>
+  </ul>
+
   <%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn btn-default pull-right' if current_admin  %>
 </div>
 

@@ -3,10 +3,13 @@ class TidbitsController < ApplicationController
   before_filter :load_tidbit, only: [:edit, :update, :show]
 
   def index
-    @tidbits = Tidbit.in_order
-  end
-
-  def show
+    if params[:category] && Tidbit.categories.keys.include?(params[:category])
+      @category = params[:category]
+      @tidbits  = Tidbit.with_category(@category).in_order
+    else
+      @category = 'All'
+      @tidbits  = Tidbit.in_order
+    end
   end
 
   def new
@@ -17,10 +20,10 @@ class TidbitsController < ApplicationController
     @tidbit = current_admin.tidbits.build(tidbit_params)
     if @tidbit.save!
       flash[:success] = 'Tidbit successfully created.'
-      return redirect_to tidbits_path
+      redirect_to tidbits_path and return
     else
       flash.now[:error] = 'There was an issue creating the tidbit.'
-      return render :new
+      render :new and return
     end
   end
 
@@ -30,10 +33,10 @@ class TidbitsController < ApplicationController
   def update
     if @tidbit.update_attributes!(tidbit_params)
       flash[:success] = 'Tidbit successfully updated.'
-      return redirect_to tidbits_path
+      redirect_to tidbits_path and return
     else
       flash.now[:error] = 'There was an issue updating the tidbit.'
-      return render :edit
+      render :edit and return
     end
   end
 
@@ -43,7 +46,7 @@ class TidbitsController < ApplicationController
   private
 
   def load_tidbit
-    @tidbit = Tidbit.find params[:id]
+    @tidbit = Tidbit.find(params[:id])
   end
 
   def tidbit_params
