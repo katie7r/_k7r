@@ -3,6 +3,7 @@
  ***********************/
 
 /* Variables */
+// TODO: Move variables out to share
 
 $navbar_border: 10px;
 $navbar_height: 50px;
@@ -10,9 +11,9 @@ $footer_height: 50px;
 
 /* Navbar Overlap Fix */
 
-body {
-  padding-top: ($navbar_border + $navbar_height + 10px);
-}
+// body {
+//   padding-top: ($navbar_border + $navbar_height + 10px);
+// }
 
 
 /* Navbar Active Link Shifting */
@@ -38,8 +39,27 @@ body {
   height: auto;
   margin: 0 auto (-$footer_height);
   padding: 0 0 60px;
+  &.splash {
+    min-height: 50%;
+  }
 }
 
 footer {
   height: $footer_height;
+}
+
+// TODO: Put this stuff somewhere else
+// ...
+#splash-jumbo {
+  background-color: #222;
+  // background: linear-gradient(
+  //     rgba(34, 34, 34, 0.95),
+  //     rgba(34, 34, 34, 0.95)
+  //   ), url(splash-bg.jpg) 0% 0%/ 100% auto no-repeat;
+  color: #FFF;
+  //
+  // #splash-img img {
+  //     max-height: 100%;
+  //     max-width: 100%;
+  // }
 }

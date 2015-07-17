@@ -7,7 +7,7 @@ class TidbitsController < ApplicationController
       @category = params[:category]
       @tidbits  = Tidbit.with_category(@category).in_order
     else
-      @category = 'All'
+      @category = 'all'
       @tidbits  = Tidbit.in_order
     end
   end

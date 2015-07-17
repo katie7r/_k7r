@@ -1,6 +1,6 @@
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -12,13 +12,13 @@
       <%= link_to root_path, class: "navbar-brand#{' active' if home?}" do %>kathleen.codes<%= sr('(current)') if home? %><% end %>
     </div>
 
-    <div id="navbar" class="collapse navbar-collapse">
+    <div id="navbar" class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li class="<%= 'active' if portfolio? %>">
-          <%= link_to my_work_path do %>Portfolio<%= sr('(current)') if portfolio? %><% end %>
-        </li>
         <li class="<%= 'active' if tidbits? %>">
           <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
+        </li>
+        <li class="<%= 'active' if portfolio? %>">
+          <%= link_to my_work_path do %>Portfolio<%= sr('(current)') if portfolio? %><% end %>
         </li>
       </ul>
     </div>

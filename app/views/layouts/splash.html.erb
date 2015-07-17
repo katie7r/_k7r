@@ -8,16 +8,19 @@
 </head>
 <body role="document">
 
-<div class="jumbotron">
+  <div class="jumbotron" id="splash-jumbo">
+    <div class="container">
+      <%= render 'layouts/splash_jumbo' %>
+    </div>
+  </div>
 
-</div>
 
-<!-- <div id="content" class="container" role="main" tabindex="-1">
-  <%= render 'shared/flash_messages', flash: flash %>
-  <%= yield %>
-</div> -->
+  <div class="container splash" id="content" role="main">
+    <%= render 'shared/flash_messages', flash: flash %>
+    <%= yield %>
+  </div>
 
-<%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>

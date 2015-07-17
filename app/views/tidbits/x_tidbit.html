@@ -1,0 +1,19 @@
+<article class="tidbit">
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <h2 class="panel-title pull-left"><%= tidbit.title %></h2>
+      <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'btn btn-default pull-right' if current_admin  %>
+    </div>
+
+    <div class="panel-body">
+      <p><%= tidbit.content %></p>
+    </div>
+
+    <div class="panel-footer clearfix">
+      <% if tidbit.more_info.present? %>
+        <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link, target: '_blank' %></span>
+      <% end %>
+      <span class="pull-right">Author: <%= tidbit.author_shy_name %></span>
+    </div>
+  </div>
+</article>

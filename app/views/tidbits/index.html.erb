@@ -1,14 +1,12 @@
-<div class="jumbotron">
-  <h1>Tidbits!</h1>
-  <p>Learn some stuff about things and junk!</p>
+<div class="row">
+  <div class="col-md-8">
+    <h1>Tidbits! <small class="text-capitalize">Viewing <%= @category %> Tidbits.</small></h1>
+    <p>Learn some stuff about things and junk!</p>
+  </div>
 
-  <h2 class="text-capitalize">Viewing <%= @category %> Tidbits.</h2>
-  <ul>View Tidbits by Category:</li>
-    <li><%= link_to 'Programming Tidbits', category_tidbits_path('programming') %></li>
-    <li><%= link_to 'Zoology Tidbits', category_tidbits_path('zoology') %></li>
-  </ul>
-
-  <%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn btn-default pull-right' if current_admin  %>
+  <div class="col-md-4">
+    <%= render 'tidbits_menu', tidbits_counts: @tidbits_counts %>
+  </div>
 </div>
 
 <section id="tidbits">

@@ -1,0 +1,7 @@
+<div class="list-group">
+  <%= tidbit_category_list_item('all', @category) %>
+  <%= tidbit_category_list_item('programming', @category) %>
+  <%= tidbit_category_list_item('zoology', @category) %>
+</div>
+
+<%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn' if current_admin  %>
