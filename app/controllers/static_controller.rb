@@ -1,15 +1,15 @@
 class StaticController < ApplicationController
-  layout "splash", only: :home
+  layout "landing", only: :home
 
   def home
+  end
+
+  def about
   end
 
   def portfolio
   end
 
-  # def about
-  # end
-  #
   # def resume
   # end
 end
