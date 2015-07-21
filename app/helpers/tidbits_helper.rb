@@ -6,9 +6,10 @@ module TidbitsHelper
   end
 
   # Generates list-group-item for given tidbits category
-  def tidbit_category_list_item(category, currently)
-    link_text = "View #{category.titleize} Tidbits"
-    link_path = category == 'all' ? tidbits_path : category_tidbits_path(category)
+  def tidbit_category_list_item(category, currently, tidbits_count)
+    link_text   = "View #{category.titleize} Tidbits"
+    link_text  += "<span class='badge badge-primary'>#{tidbits_count}</span>"
+    link_path   = category == 'all' ? tidbits_path : category_tidbits_path(category)
     html_class  = 'list-group-item'
     html_class += ' active' if currently == category
     return link_to link_text, link_path, class: html_class

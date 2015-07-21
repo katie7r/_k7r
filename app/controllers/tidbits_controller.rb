@@ -3,6 +3,7 @@ class TidbitsController < ApplicationController
   before_filter :load_tidbit, only: [:edit, :update]
 
   def index
+    @tidbit_totals = Tidbit.get_totals
     if params[:category] && Tidbit.categories.keys.include?(params[:category])
       @category = params[:category]
       @tidbits  = Tidbit.with_category(@category).in_order

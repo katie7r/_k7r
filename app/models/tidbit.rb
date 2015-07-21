@@ -23,15 +23,32 @@ class Tidbit < ActiveRecord::Base
 
   delegate :name, :shy_name, to: :author, prefix: true
 
+  #========================= Class Methods
+
   # Orders tidbits from most to least recently created
   def self.in_order
     order('created_at DESC')
   end
 
+  # Returns the total count for each category (and all total)
+  def self.get_totals
+    totals = {}
+    self.categories.each{ |name, value| totals[name] = Tidbit.with_category_id(value).size }
+    totals['all'] = totals.values.inject(:+)
+    return totals
+  end
+
   # Gets tidbits with given category
   def self.with_category(category)
-    where(category: self.categories[category])
+    with_category_id(self.categories[category])
   end
+
+  # Gets tidbits with given category id
+  def self.with_category_id(category_id)
+    where(category: category_id)
+  end
+
+  #========================= Class Methods
 
   # Gets the integer value for the tidbit's category, based on name
   def category_id
