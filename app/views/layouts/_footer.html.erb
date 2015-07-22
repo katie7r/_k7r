@@ -1,6 +1,6 @@
-<footer class="footer navbar-inverse">
-  <div class="container">
-    <p class="text-muted navbar-text navbar-right">
+<footer class='footer navbar-inverse'>
+  <div class='container'>
+    <p class='text-muted navbar-text navbar-right'>
       <% if current_admin %>
         Signed in as <%= current_admin.name %>. <%= link_to 'Logout?', destroy_admin_session_path, method: :delete %>
       <% else %>

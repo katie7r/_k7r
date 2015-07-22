@@ -1,20 +1,20 @@
-<article class="row tidbit">
-  <div class="">
+<article class='row tidbit'>
+  <div class=''>
 
-    <div class="">
-      <h2 class=""><%= tidbit.title %></h2>
+    <div class=''>
+      <h2 class=''><%= tidbit.title %></h2>
       <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'btn' if current_admin  %>
     </div>
 
-    <div class="">
+    <div class=''>
       <p><%= tidbit.content %></p>
     </div>
 
-    <div class="">
+    <div class=''>
       <% if tidbit.more_info.present? %>
         <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link, target: '_blank' %></span>
       <% end %>
-      <span class="">Author: <%= tidbit.author_shy_name %></span>
+      <span class=''>Author: <%= tidbit.author_shy_name %></span>
     </div>
 
   </div>

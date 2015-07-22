@@ -1,5 +1,4 @@
 class StaticController < ApplicationController
-  layout 'home', only: :home
 
   def home
   end
@@ -10,6 +9,4 @@ class StaticController < ApplicationController
   def portfolio
   end
 
-  # def resume
-  # end
 end

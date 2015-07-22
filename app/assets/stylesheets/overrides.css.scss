@@ -2,23 +2,17 @@
  * Bootstrap Overrides *
  ***********************/
  body { font-family: 'Latin_Modern_Sans'; }
- h1,h2,h3,h4{ font-family: 'Dustismo_Roman'; }
+ h1,h2,h3,h4 { font-family: 'Dustismo_Roman'; }
 
 /* Variables */
 // TODO: Move variables out to share
 
-$navbar_border: 10px;
-$navbar_height: 50px;
+// $navbar_border: 10px;
+// $navbar_height: 50px;
 $footer_height: 50px;
 
-/* Navbar Overlap Fix */
-
-// body {
-//   padding-top: ($navbar_border + $navbar_height + 10px);
-// }
-
-
 /* Navbar Active Link Shifting */
+
 .navbar-brand {
   padding-left: 15px;
   padding-right: 15px;
@@ -49,6 +43,9 @@ footer {
 
 // TODO: Put this stuff somewhere else
 // ...
+
+// Intro on Home Page
+
 #jumbo-intro {
   margin-top: -20px;
   min-height: 35%;
@@ -60,18 +57,24 @@ footer {
     height: auto;
     max-width: 100%;
   }
-
-  // #landing-img img {
-  //     max-height: 100%;
-  //     max-width: 100%;
-  // }
 }
+
+// Brand
 
 .navbar-brand {
   font-size: 1.75em;
 }
 
-span.outstanding {
-  color: #8B5;
-  font-family: 'Latin_Modern_Sans_Demi_Cond';
+.brand {
+  color: #FFF;
+  font-family: 'Latin_Modern_Sans';
+
+  a, a:link, a:visited, a:hover, a:active {
+    color: #FFF;
+  }
+
+  .brand-mark {
+    color: #8B5;
+    font-family: 'Latin_Modern_Sans_Demi_Cond';
+  }
 }

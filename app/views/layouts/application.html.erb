@@ -6,11 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body role="document">
+<body role='document'>
 
   <%= render 'layouts/nav' %>
 
-  <div class="container" id="content" role="main">
+  <%= render 'static/intro' if home? %>
+  <div class='container' id='content' role='main'>
     <%= render 'shared/flash_messages', flash: flash %>
     <%= yield %>
   </div>

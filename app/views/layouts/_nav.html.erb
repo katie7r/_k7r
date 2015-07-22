@@ -1,24 +1,31 @@
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<a href='#content' class='sr-only sr-only-focusable'>Skip to main content</a>
 
-<nav class="navbar navbar-inverse navbar-static-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<nav class='navbar navbar-inverse navbar-static-top'>
+  <div class='container'>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
       </button>
-      <%= link_to root_path, class: "navbar-brand#{' active' if home?}" do %>katie<span class='outstanding'>r</span>.codes<%= sr('(current)') if home? %><% end %>
+      <span class='brand'>
+        <%= link_to root_path, class: "navbar-brand#{' active' if home?}" do %>
+        katie<span class='brand-mark'>r</span>.codes<%= sr('(current)') if home? %>
+        <% end %>
+      </span>
     </div>
 
-    <div id="navbar" class="collapse navbar-collapse navbar-right">
-      <ul class="nav navbar-nav">
-        <li class="<%= 'active' if tidbits? %>">
-          <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
+    <div id='navbar' class='collapse navbar-collapse navbar-right'>
+      <ul class='nav navbar-nav'>
+        <li class='<%= 'active' if about? %>'>
+          <%= link_to my_bio_path do %>Bio<%= sr('(current)') if about? %><% end %>
         </li>
-        <li class="<%= 'active' if portfolio? %>">
+        <li class='<%= 'active' if portfolio? %>'>
           <%= link_to my_work_path do %>Portfolio<%= sr('(current)') if portfolio? %><% end %>
+        </li>
+        <li class='<%= 'active' if tidbits? %>'>
+          <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
         </li>
       </ul>
     </div>

@@ -1,14 +1,14 @@
-<div class="row">
-  <div class="col-md-8">
-    <h1>Tidbits! <small class="text-capitalize">Viewing <%= @category %> Tidbits.</small></h1>
+<div class='row'>
+  <div class='col-md-8'>
+    <h1>Tidbits! <small class='text-capitalize'>Viewing <%= @category %> Tidbits.</small></h1>
     <p>Learn some stuff about things and junk!</p>
   </div>
 
-  <div class="col-md-4">
+  <div class='col-md-4'>
     <%= render 'tidbits_menu', tidbit_totals: @tidbit_totals %>
   </div>
 </div>
 
-<section id="tidbits">
+<section id='tidbits'>
   <%= render partial: 'tidbit', collection: @tidbits %>
 </section>

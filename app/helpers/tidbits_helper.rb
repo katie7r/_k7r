@@ -5,7 +5,7 @@ module TidbitsHelper
     options_for_select(Tidbit.categories.map{ |name, value| [ name.titleize, value ] }, selected: selected)
   end
 
-  # Generates list-group-item for given tidbits category
+  # Generates list-group-item for given tidbits category (for menu on tidbits pages)
   def tidbit_category_list_item(category, currently, tidbits_count)
     link_text   = "View #{category.titleize} Tidbits"
     # link_text  += "<span class='badge badge-primary'>#{tidbits_count}</span>"
