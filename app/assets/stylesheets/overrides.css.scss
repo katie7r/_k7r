@@ -1,8 +1,8 @@
 /***********************
  * Bootstrap Overrides *
  ***********************/
- body { font-family: 'latin_modern_sans10_regular'; }
- h1,h2,h3,h4{ font-family: 'dustismo_romanregular'; }
+ body { font-family: 'Latin_Modern_Sans'; }
+ h1,h2,h3,h4{ font-family: 'Dustismo_Roman'; }
 
 /* Variables */
 // TODO: Move variables out to share
@@ -41,9 +41,6 @@ body {
   height: auto;
   margin: 0 auto (-$footer_height);
   padding: 0 0 60px;
-  &.landing {
-    min-height: 50%;
-  }
 }
 
 footer {
@@ -52,12 +49,33 @@ footer {
 
 // TODO: Put this stuff somewhere else
 // ...
-#landing-jumbo {
+#jumbo-intro {
+  margin-top: -20px;
+  min-height: 25%;
   background-color: #222;
   color: #FFF;
+
+  .intro-image {
+    max-height: 100%;
+    overflow: hidden;
+
+    img {
+      max-height: 50%;
+      width: auto;
+    }
+  }
 
   // #landing-img img {
   //     max-height: 100%;
   //     max-width: 100%;
   // }
+}
+
+.navbar-brand {
+  font-size: 1.75em;
+}
+
+span.outstanding {
+  color: #8B5;
+  font-family: 'Latin_Modern_Sans_Demi_Cond';
 }

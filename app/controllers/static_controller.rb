@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  layout "landing", only: :home
+  layout 'home', only: :home
 
   def home
   end

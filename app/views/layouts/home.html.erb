@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kathleen.codes</title>
+  <title>katier.codes</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body role="document">
 
-  <div class="jumbotron" id="landing-jumbo">
-    <div class="container">
-      <%= render 'layouts/landing_jumbo' %>
-    </div>
-  </div>
-
+  <%= render 'layouts/nav' %>
+  <%= render 'static/intro' %>
 
   <div class="container landing" id="content" role="main">
     <%= render 'shared/flash_messages', flash: flash %>

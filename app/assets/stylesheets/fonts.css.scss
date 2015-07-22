@@ -1,19 +1,19 @@
 /* Dustismo Roman */
 
 @font-face {
-    font-family: 'dustismo_romanbold_italic';
-    src: url('Dustismo_Roman_Italic_Bold-webfont.eot');
-    src: url('Dustismo_Roman_Italic_Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Dustismo_Roman_Italic_Bold-webfont.woff') format('woff'),
-         url('Dustismo_Roman_Italic_Bold-webfont.ttf') format('truetype'),
-         url('Dustismo_Roman_Italic_Bold-webfont.svg#dustismo_romanbold_italic') format('svg');
+    font-family: 'Dustismo_Roman';
+    src: url('Dustismo_Roman-webfont.eot');
+    src: url('Dustismo_Roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Dustismo_Roman-webfont.woff') format('woff'),
+         url('Dustismo_Roman-webfont.ttf') format('truetype'),
+         url('Dustismo_Roman-webfont.svg#dustismo_romanregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'dustismo_romanbold';
+    font-family: 'Dustismo_Roman_Bold';
     src: url('Dustismo_Roman_Bold-webfont.eot');
     src: url('Dustismo_Roman_Bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('Dustismo_Roman_Bold-webfont.woff') format('woff'),
@@ -25,7 +25,7 @@
 }
 
 @font-face {
-    font-family: 'dustismo_romanitalic';
+    font-family: 'Dustismo_Roman_Italic';
     src: url('Dustismo_Roman_Italic-webfont.eot');
     src: url('Dustismo_Roman_Italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('Dustismo_Roman_Italic-webfont.woff') format('woff'),
@@ -37,12 +37,12 @@
 }
 
 @font-face {
-    font-family: 'dustismo_romanregular';
-    src: url('Dustismo_Roman-webfont.eot');
-    src: url('Dustismo_Roman-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Dustismo_Roman-webfont.woff') format('woff'),
-         url('Dustismo_Roman-webfont.ttf') format('truetype'),
-         url('Dustismo_Roman-webfont.svg#dustismo_romanregular') format('svg');
+    font-family: 'Dustismo_Roman_Italic_Bold';
+    src: url('Dustismo_Roman_Italic_Bold-webfont.eot');
+    src: url('Dustismo_Roman_Italic_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Dustismo_Roman_Italic_Bold-webfont.woff') format('woff'),
+         url('Dustismo_Roman_Italic_Bold-webfont.ttf') format('truetype'),
+         url('Dustismo_Roman_Italic_Bold-webfont.svg#dustismo_romanbold_italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -51,43 +51,7 @@
 /* Latin Modern Sans */
 
 @font-face {
-    font-family: 'latin_modern_sans10_bold';
-    src: url('lmsans10-bold-webfont.eot');
-    src: url('lmsans10-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lmsans10-bold-webfont.woff') format('woff'),
-         url('lmsans10-bold-webfont.ttf') format('truetype'),
-         url('lmsans10-bold-webfont.svg#latin_modern_sans10_bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'latin_modern_sans10BdOb';
-    src: url('lmsans10-boldoblique-webfont.eot');
-    src: url('lmsans10-boldoblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lmsans10-boldoblique-webfont.woff') format('woff'),
-         url('lmsans10-boldoblique-webfont.ttf') format('truetype'),
-         url('lmsans10-boldoblique-webfont.svg#latin_modern_sans10BdOb') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'latin_modern_sans10_oblique';
-    src: url('lmsans10-oblique-webfont.eot');
-    src: url('lmsans10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lmsans10-oblique-webfont.woff') format('woff'),
-         url('lmsans10-oblique-webfont.ttf') format('truetype'),
-         url('lmsans10-oblique-webfont.svg#latin_modern_sans10_oblique') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'latin_modern_sans10_regular';
+    font-family: 'Latin_Modern_Sans';
     src: url('lmsans10-regular-webfont.eot');
     src: url('lmsans10-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('lmsans10-regular-webfont.woff') format('woff'),
@@ -99,24 +63,60 @@
 }
 
 @font-face {
-    font-family: 'latin_modern_sans_demi_co10Ob';
-    src: url('lmsansdemicond10-oblique-webfont.eot');
-    src: url('lmsansdemicond10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lmsansdemicond10-oblique-webfont.woff') format('woff'),
-         url('lmsansdemicond10-oblique-webfont.ttf') format('truetype'),
-         url('lmsansdemicond10-oblique-webfont.svg#latin_modern_sans_demi_co10Ob') format('svg');
+    font-family: 'Latin_Modern_Sans_Bold';
+    src: url('lmsans10-bold-webfont.eot');
+    src: url('lmsans10-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmsans10-bold-webfont.woff') format('woff'),
+         url('lmsans10-bold-webfont.ttf') format('truetype'),
+         url('lmsans10-bold-webfont.svg#latin_modern_sans10_bold') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'latin_modern_sans_demi_co10Rg';
+    font-family: 'Latin_Modern_Sans_Bold_Oblique';
+    src: url('lmsans10-boldoblique-webfont.eot');
+    src: url('lmsans10-boldoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmsans10-boldoblique-webfont.woff') format('woff'),
+         url('lmsans10-boldoblique-webfont.ttf') format('truetype'),
+         url('lmsans10-boldoblique-webfont.svg#latin_modern_sans10BdOb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin_Modern_Sans_Oblique';
+    src: url('lmsans10-oblique-webfont.eot');
+    src: url('lmsans10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmsans10-oblique-webfont.woff') format('woff'),
+         url('lmsans10-oblique-webfont.ttf') format('truetype'),
+         url('lmsans10-oblique-webfont.svg#latin_modern_sans10_oblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin_Modern_Sans_Demi_Cond';
     src: url('lmsansdemicond10-regular-webfont.eot');
     src: url('lmsansdemicond10-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('lmsansdemicond10-regular-webfont.woff') format('woff'),
          url('lmsansdemicond10-regular-webfont.ttf') format('truetype'),
          url('lmsansdemicond10-regular-webfont.svg#latin_modern_sans_demi_co10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin_Modern_Sans_Demi_Cond_Oblique';
+    src: url('lmsansdemicond10-oblique-webfont.eot');
+    src: url('lmsansdemicond10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmsansdemicond10-oblique-webfont.woff') format('woff'),
+         url('lmsansdemicond10-oblique-webfont.ttf') format('truetype'),
+         url('lmsansdemicond10-oblique-webfont.svg#latin_modern_sans_demi_co10Ob') format('svg');
     font-weight: normal;
     font-style: normal;
 
