@@ -51,18 +51,14 @@ footer {
 // ...
 #jumbo-intro {
   margin-top: -20px;
-  min-height: 25%;
+  min-height: 35%;
+  height: auto;
   background-color: #222;
   color: #FFF;
 
-  .intro-image {
-    max-height: 100%;
-    overflow: hidden;
-
-    img {
-      max-height: 50%;
-      width: auto;
-    }
+  .intro-image img {
+    height: auto;
+    max-width: 100%;
   }
 
   // #landing-img img {
