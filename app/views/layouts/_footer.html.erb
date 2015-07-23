@@ -1,11 +1,26 @@
-<footer class='footer navbar-inverse'>
+<footer class='footer navbar-static-bottom navbar-inverse'>
   <div class='container'>
-    <p class='text-muted navbar-text navbar-right'>
+    <span class='navbar-text navbar-left'>
+      <dl class='dl-horizontal text-left'>
+        <dt>Email me:</dt>
+        <dd>katie.k7r<span class='hidden'>shhhh</span>@gmail.com</dd>
+        <dt>Find me elsewhere:</dt>
+        <dd class='social'>
+          <ul class='list-unstyled list-inline'>
+            <li><a href='https://github.com/katie7r' target='_blank' class='btn btn-brand btn-xs'>&lt;github&gt;<%= sr('GitHub') %></a></li>
+            <li><a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-brand btn-xs'>&lt;twitter&gt;<%= sr('Twitter') %></a></li>
+            <li><a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-default btn-xs'>&lt;linkedin&gt;<%= sr('LinkedIn') %></a></li>
+          </ul>
+        </dd>
+      </dl>
+    </span>
+
+    <span class='text-muted navbar-text navbar-right'>
       <% if current_admin %>
         Signed in as <%= current_admin.name %>. <%= link_to 'Logout?', destroy_admin_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Admin Login', new_admin_session_path %>
       <% end %>
-    </p>
+    </span>
   </div>
 </footer>

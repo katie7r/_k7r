@@ -1,57 +1,83 @@
 /***********************
- * Bootstrap Overrides *
+ *  I Don't Even Know  *
  ***********************/
- body { font-family: 'Latin_Modern_Sans'; }
- h1,h2,h3,h4 { font-family: 'Dustismo_Roman'; }
+
+// TODO: Organize!
 
 /* Variables */
 // TODO: Move variables out to share
+$brand_lime: #8B5;
 
-// $navbar_border: 10px;
-// $navbar_height: 50px;
+$left_right: 15px;
+$top_bottom: 30px;
+
+$nav_height:    51px; // 50px + 1px border
 $footer_height: 50px;
+$intro_height:  35%;
 
-/* Navbar Active Link Shifting */
+$main_min:       calc(100% - (#{$nav_height} + #{$footer_height})); // + #{$top_bottom} + #{$top_bottom} : main-content margin-top and footer margin-top
+$intro_main_min: calc(#{$main_min} - #{$intro_height});
+
+/******* General *******/
+
+body {
+  font-family: 'Latin_Modern_Sans';
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Dustismo_Roman';
+}
+
+.brand {
+  color: #FFF;
+  font-family: 'Latin_Modern_Sans';
+
+  .brand-mark {
+    color: $brand_lime;
+    font-family: 'Latin_Modern_Sans_Demi_Cond';
+  }
+
+  a, a:link, a:visited, a:hover, a:active {
+    color: #FFF;
+  }
+}
+
+/******* Layout *******/
+
+// (un)Sticky footer fix
+html, body {
+  height: 100%;
+}
+
+.alert button.close {
+  margin-top: -0.1em;
+}
+
+/* Nav */
+
+nav.navbar {
+  margin-bottom: 0;
+}
 
 .navbar-brand {
-  padding-left: 15px;
-  padding-right: 15px;
+  font-size: 1.75em;
 
+  // Active link fix
+  padding: auto $left_right;
   &.active {
     background-color: #000;
     color: #FFF;
   }
 }
 
-/* (un)Sticky Footer Fix */
+/* Content */
 
-html,
-body {
-  height: 100%;
-}
-
-#content {
-  min-height: 100%;
-  height: auto;
-  margin: 0 auto (-$footer_height);
-  padding: 0 0 60px;
-}
-
-footer {
-  height: $footer_height;
-}
-
-// TODO: Put this stuff somewhere else
-// ...
-
-// Intro on Home Page
-
-#jumbo-intro {
-  margin-top: -20px;
-  min-height: 35%;
-  height: auto;
+#intro {
   background-color: #222;
   color: #FFF;
+  min-height: 35%;
+  height: auto;
+  margin-bottom: 0;
 
   .intro-image img {
     height: auto;
@@ -59,22 +85,61 @@ footer {
   }
 }
 
-// Brand
-
-.navbar-brand {
-  font-size: 1.75em;
+.container {
+  // (un)Sticky footer fix
+  min-height: $main_min;
+  height: auto;
+  margin: 0 auto (-$footer_height);
+  padding: 0 0 $footer_height;
+  &#home {
+    min-height: $intro_main_min;
+  }
 }
 
-.brand {
-  color: #FFF;
-  font-family: 'Latin_Modern_Sans';
+#main-content {
+  margin-top: $top_bottom;
+  padding: auto $left_right;
+}
 
-  a, a:link, a:visited, a:hover, a:active {
-    color: #FFF;
+/* Footer */
+
+footer {
+  // (un)Sticky footer fix
+  height: $footer_height;
+  margin-top: $top_bottom;
+
+  a {
+    color: #777;
+    &:hover {
+      color: #FFF;
+      text-decoration: none;
+    }
   }
 
-  .brand-mark {
-    color: #8B5;
-    font-family: 'Latin_Modern_Sans_Demi_Cond';
+  dl.dl-horizontal {
+    margin-left: (-$left_right);
+
+    dt, dd {
+      display: inline-block;
+      float: none;
+    }
+    dt {
+      margin-left: $left_right;
+      vertical-align: baseline;
+      width: auto;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    dd {
+      margin-left: 0;
+      vertical-align: top;
+
+      &.social ul {
+        padding: 0;
+        margin: -2px 0 0;
+      }
+    }
   }
 }

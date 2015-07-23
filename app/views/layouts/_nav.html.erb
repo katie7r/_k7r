@@ -1,4 +1,4 @@
-<a href='#content' class='sr-only sr-only-focusable'>Skip to main content</a>
+<a href='#main-content' class='sr-only sr-only-focusable'>Skip to main content</a>
 
 <nav class='navbar navbar-inverse navbar-static-top'>
   <div class='container'>
@@ -22,7 +22,7 @@
           <%= link_to my_bio_path do %>Bio<%= sr('(current)') if about? %><% end %>
         </li>
         <li class='<%= 'active' if portfolio? %>'>
-          <%= link_to my_work_path do %>Portfolio<%= sr('(current)') if portfolio? %><% end %>
+          <%= link_to my_work_path do %>Work<%= sr('(current)') if portfolio? %><% end %>
         </li>
         <li class='<%= 'active' if tidbits? %>'>
           <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
