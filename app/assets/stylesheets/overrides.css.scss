@@ -6,7 +6,11 @@
 
 /* Variables */
 // TODO: Move variables out to share
-$brand_lime: #8B5;
+$k7r_lime:      #8B5;
+$k7r_lime_dark: #693;
+$k7r_grey_lite: #444;
+$k7r_grey:      #333;
+$k7r_grey_dark: #222;
 
 $left_right: 15px;
 $top_bottom: 30px;
@@ -28,12 +32,26 @@ h1, h2, h3, h4 {
   font-family: 'Dustismo_Roman';
 }
 
-.brand {
+.btn-k7r {
+  background-color: $k7r_lime;
+  border-color: $k7r_lime_dark;
+  color: $k7r_grey_dark;
+
+  &:hover {
+    background-color: lighten($k7r_lime_dark, 5%);
+    color: $k7r_grey_dark;
+  }
+  &.btn-k7r-wt {
+    color: #FFF;
+  }
+}
+
+.k7r {
   color: #FFF;
   font-family: 'Latin_Modern_Sans';
 
-  .brand-mark {
-    color: $brand_lime;
+  .k7r-mark {
+    color: $k7r_lime;
     font-family: 'Latin_Modern_Sans_Demi_Cond';
   }
 
@@ -56,7 +74,16 @@ html, body {
 /* Nav */
 
 nav.navbar {
+  background-color: $k7r_grey;
+  border-color: $k7r_grey_dark;
   margin-bottom: 0;
+
+  li.active, .navbar-brand.active {
+    &, &:hover {
+      background-color: $k7r_grey_dark;
+      color: #FFF;
+    }
+  }
 }
 
 .navbar-brand {
@@ -64,16 +91,12 @@ nav.navbar {
 
   // Active link fix
   padding: auto $left_right;
-  &.active {
-    background-color: #000;
-    color: #FFF;
-  }
 }
 
 /* Content */
 
 #intro {
-  background-color: #222;
+  background-color: $k7r_grey_dark;
   color: #FFF;
   min-height: 35%;
   height: auto;
@@ -103,13 +126,13 @@ body > .container {
 /* Footer */
 
 footer {
-  // (un)Sticky footer fix
+  background-color: $k7r_grey_dark;
   height: $footer_height;
-
   overflow: hidden;
 
   a {
-    color: #777;
+    color: $k7r_grey_lite;
+
     &:hover {
       color: #FFF;
       text-decoration: none;
@@ -139,7 +162,17 @@ footer {
       &.social ul {
         padding: 0;
         margin: -2px 0 0;
+
+        li {
+          padding: 0;
+        }
       }
     }
   }
+
+}
+
+.social .btn-xs {
+  padding-top: 3.5px;
+  padding-bottom: 3.5px;
 }

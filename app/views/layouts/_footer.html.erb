@@ -1,4 +1,4 @@
-<footer class='footer navbar-static-bottom navbar-inverse'>
+<footer class='footer navbar-inverse navbar-static-bottom'>
   <div class='container'>
     <span class='navbar-text navbar-left'>
       <dl class='dl-horizontal text-left'>
@@ -7,9 +7,21 @@
         <dt>Find me elsewhere:</dt>
         <dd class='social'>
           <ul class='list-unstyled list-inline'>
-            <li><a href='https://github.com/katie7r' target='_blank' class='btn btn-brand btn-xs'>&lt;github&gt;<%= sr('GitHub') %></a></li>
-            <li><a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-brand btn-xs'>&lt;twitter&gt;<%= sr('Twitter') %></a></li>
-            <li><a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-default btn-xs'>&lt;linkedin&gt;<%= sr('LinkedIn') %></a></li>
+            <li>
+              <a href='https://github.com/katie7r' target='_blank' class='btn btn-k7r btn-xs'>
+                <%= fa_icon('github', class: 'fa-fw') + sr('GitHub') %>
+              </a>
+            </li>
+            <li>
+              <a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-k7r btn-xs'>
+                <%= fa_icon('twitter', class: 'fa-fw') + sr('Twitter') %>
+              </a>
+            </li>
+            <li>
+              <a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-k7r btn-xs'>
+                <%= fa_icon('linkedin', class: 'fa-fw') + sr('LinkedIn') %>
+              </a>
+            </li>
           </ul>
         </dd>
       </dl>
