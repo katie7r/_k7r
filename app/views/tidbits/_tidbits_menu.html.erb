@@ -1,9 +1,8 @@
+<p class='strong'>Choose Category:</p>
 <div class='list-group'>
   <% all_tidbit_categories.each do |category| %>
     <%= link_to tidbits_path_for(category), class: "list-group-item list-group-item-k7r#{' active' if currently == category}" do %>
-      View <%= category.titleize %> Tidbits<span class='badge badge-primary'><%= tidbit_totals[category] %></span>
+      <%= category.titleize %><span class='badge badge-primary'><%= tidbit_totals[category] %></span>
     <% end %>
   <% end %>
 </div>
-
-<%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn' if current_admin  %>
