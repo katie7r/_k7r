@@ -6,11 +6,12 @@
 
 /* Variables */
 // TODO: Move variables out to share
-$k7r_lime:      #8B5;
-$k7r_lime_dark: #693;
-$k7r_grey_lite: #444;
-$k7r_grey:      #333;
-$k7r_grey_dark: #222;
+$k7r_lime:         #8C4;
+$k7r_lime_dark:    #693;
+$k7r_grey_lighter: #777;
+$k7r_grey_light:   #444;
+$k7r_grey:         #333;
+$k7r_grey_dark:    #222;
 
 $left_right: 15px;
 $top_bottom: 30px;
@@ -35,6 +36,7 @@ h1, h2, h3, h4 {
 .btn-k7r {
   background-color: $k7r_lime;
   border-color: $k7r_lime_dark;
+  border-radius: 50%;
   color: $k7r_grey_dark;
 
   &:hover {
@@ -131,10 +133,10 @@ footer {
   overflow: hidden;
 
   a {
-    color: $k7r_grey_lite;
+    color: $k7r_grey_light;
 
     &:hover {
-      color: #FFF;
+      color: $k7r_grey_lighter;
       text-decoration: none;
     }
   }
