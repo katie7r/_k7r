@@ -1,7 +1,9 @@
 <div class='list-group'>
-  <%= tidbit_category_list_item('all',         @category, tidbit_totals['all']) %>
-  <%= tidbit_category_list_item('programming', @category, tidbit_totals['programming']) %>
-  <%= tidbit_category_list_item('zoology',     @category, tidbit_totals['zoology']) %>
+  <% all_tidbit_categories.each do |category| %>
+    <%= link_to tidbits_path_for(category), class: "list-group-item list-group-item-k7r#{' active' if currently == category}" do %>
+      View <%= category.titleize %> Tidbits<span class='badge badge-primary'><%= tidbit_totals[category] %></span>
+    <% end %>
+  <% end %>
 </div>
 
 <%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn' if current_admin  %>

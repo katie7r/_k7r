@@ -48,6 +48,6 @@ class TidbitsController < ApplicationController
   end
 
   def tidbit_params
-    params.require(:tidbit).permit(:tidbit_type, :title, :content, :more_info, :more_info_link)
+    params.require(:tidbit).permit(:category, :content, :more_info, :more_info_link, :title)
   end
 end

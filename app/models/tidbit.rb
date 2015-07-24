@@ -3,7 +3,6 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  tidbit_type    :string(255)      not null
 #  title          :string(255)      not null
 #  content        :text             not null
 #  more_info      :string(255)
@@ -11,10 +10,11 @@
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  category       :integer          default(0), not null
 #
 
 class Tidbit < ActiveRecord::Base
-  enum category: ['programming', 'zoology']
+  enum category: ['programming', 'zoology', 'miscellaneous']
 
   belongs_to :author, class_name: 'Admin'
 
@@ -48,7 +48,7 @@ class Tidbit < ActiveRecord::Base
     where(category: category_id)
   end
 
-  #========================= Class Methods
+  #========================= Instance Methods
 
   # Gets the integer value for the tidbit's category, based on name
   def category_id
