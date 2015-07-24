@@ -6,8 +6,15 @@
 
 /* Variables */
 // TODO: Move variables out to share
-$k7r_lime:         #8C4;
+// $k7r_lime_light:   #ABEE77;
+// $k7r_lime:         #99DD43;
+// $k7r_lime_dark:    #7FC23F;
+
+$k7r_lime_light:   #AD7;
+$k7r_lime:         #8B5;
 $k7r_lime_dark:    #693;
+$k7r_lime_darker:  #471;
+
 $k7r_grey_lighter: #777;
 $k7r_grey_light:   #444;
 $k7r_grey:         #333;
@@ -33,26 +40,18 @@ h1, h2, h3, h4 {
   font-family: 'Dustismo_Roman';
 }
 
-.btn-k7r {
-  background-color: $k7r_lime;
-  border-color: $k7r_lime_dark;
-  border-radius: 50%;
-  color: $k7r_grey_dark;
+/******* K7R Brandishing *******/
 
-  &:hover {
-    background-color: lighten($k7r_lime_dark, 5%);
-    color: $k7r_grey_dark;
-  }
-  &.btn-k7r-wt {
-    color: #FFF;
-  }
-}
-
+// k7r logo-y text ~ katie[r].codes
 .k7r {
   color: #FFF;
   font-family: 'Latin_Modern_Sans';
 
   .k7r-mark {
+    &:before { content: '['; }
+    &:after  { content: ']'; }
+    &:before, &:after { color: $k7r_grey_light; }
+
     color: $k7r_lime;
     font-family: 'Latin_Modern_Sans_Demi_Cond';
   }
@@ -62,9 +61,44 @@ h1, h2, h3, h4 {
   }
 }
 
+// k7r buttons
+.btn-k7r {
+  background-color: $k7r_lime;
+  border-color: $k7r_lime_dark;
+  color: $k7r_grey_dark;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: $k7r_lime_dark;
+    color: $k7r_grey_dark;
+  }
+  &.btn-k7r-wt {
+    color: #FFF;
+  }
+}
+
+.list-group-item-k7r {
+  &.active {
+    background-color: $k7r_lime_light;
+    border-color: $k7r_lime;
+
+    &:hover {
+      background-color: $k7r_lime;
+      border-color: $k7r_lime;
+    }
+
+    a {
+      color: $k7r_grey_dark;
+    }
+
+    span.badge {
+      color: $k7r_lime_dark;
+    }
+  }
+}
+
 /******* Layout *******/
 
-// (un)Sticky footer fix
 html, body {
   height: 100%;
 }
@@ -90,8 +124,6 @@ nav.navbar {
 
 .navbar-brand {
   font-size: 1.75em;
-
-  // Active link fix
   padding: auto $left_right;
 }
 
@@ -131,6 +163,10 @@ footer {
   background-color: $k7r_grey_dark;
   height: $footer_height;
   overflow: hidden;
+
+  & > .container {
+    padding-left: (-$left_right);
+  }
 
   a {
     color: $k7r_grey_light;
