@@ -5,7 +5,12 @@
 @import "variables";
 @import "mixins";
 
-/******* General *******/
+//************************* General
+
+// (un)Sticky footer fix
+html, body {
+  height: 100%;
+}
 
 body {
   @include sans-serif;
@@ -15,74 +20,25 @@ h1, h2, h3, h4, h5, h6 {
   @include serif;
 }
 
-/******* K7R Brandishing *******/
+//************************* Layout: Nav
 
-// k7r logo-y text ~ katie[r].codes
-.k7r {
-  @include sans-serif;
-  color: #FFF;
+nav.navbar {
+  @include bordered-grey;
+  margin-bottom: 0;
 
-  .k7r-mark {
-    @include special-sans;
-
-    &:before { content: '['; }
-    &:after  { content: ']'; }
-    &:before, &:after { color: $k7r_grey_light; }
-
-    color: $k7r_lime;
-  }
-
-  a {
-    @include link-pseudos {
-      color: #FFF;
-    }
-  }
-}
-
-// k7r buttons
-.btn-k7r {
-  @include bordered-dark-on-lime;
-
-  &:hover {
-    @include dark-on-dark-lime;
-  }
-
-  &.btn-k7r-wt {
-    color: #FFF;
-  }
-}
-
-// Bootstrap doesn't seem to want me to recolor this thing
-a.list-group-item-k7r {
-  &, &.active {
-    @include link-pseudos {
-      color: $k7r_grey_dark;
+  .navbar-brand, li {
+    &.active, &.active:hover {
+      @include white-on-dark;
     }
   }
 
-  &:hover, &:active {
-    background-color: $k7r_lime_light;
-  }
-
-  &.active {
-    @include bordered-dark-on-lime;
-
-    &:hover, &:active {
-      background-color: $k7r_lime_light;
-      border-color: $k7r_lime;
-    }
-
-    span.badge {
-      color: $k7r_grey;
-    }
+  .navbar-brand {
+    @include padding-lr;
+    font-size: 1.75em;
   }
 }
 
-/******* Layout *******/
-
-html, body {
-  height: 100%;
-}
+//************************* Layout: Body
 
 .alert button.close {
   float: left;
@@ -90,34 +46,10 @@ html, body {
   margin-right: 0.5em;
 }
 
-/* Nav */
-
-nav.navbar {
-  background-color: $k7r_grey;
-  border-color: $k7r_grey_dark;
-  margin-bottom: 0;
-
-  li.active, .navbar-brand.active {
-    &, &:hover {
-      @include white-on-dark;
-    }
-  }
-}
-
-.navbar-brand {
-  @include padding-lr;
-  font-size: 1.75em;
-}
-
-/* Content */
-
 #intro {
   @include white-on-dark;
-  // background-color: $k7r_grey_dark;
-  // color: #FFF;
-  min-height: 35%;
-  height: auto;
   margin-bottom: 0;
+  min-height: 35%;
 
   .intro-image img {
     height: auto;
@@ -125,8 +57,9 @@ nav.navbar {
   }
 }
 
+
+// (un)Sticky footer fix
 body > .container {
-  // (un)Sticky footer fix
   min-height: $main_min;
   height: auto;
   margin: 0 auto (-$footer_height);
@@ -149,7 +82,7 @@ body > .container {
   }
 }
 
-/* Footer */
+//************************* Layout: Footer
 
 footer {
   background-color: $k7r_grey_dark;
@@ -210,9 +143,87 @@ footer {
   }
 }
 
+//************************* Miscellaneous
+
 .btn-xs.btn-icon {
   padding-top: 3px;
   padding-bottom: 4px;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+//************************* Meeeeeee
+
+// ~ katie[r].codes
+.k7r {
+  @include sans-serif;
+  color: #FFF;
+
+  .k7r-mark {
+    @include special-sans;
+
+    &:before { content: '['; }
+    &:after  { content: ']'; }
+    &:before, &:after { color: $k7r_grey_light; }
+
+    color: $k7r_lime;
+  }
+
+  a {
+    @include link-pseudos {
+      color: #FFF;
+    }
+  }
+}
+
+// k7r buttons
+.btn-k7r {
+  @include bordered-lime;
+  @include link-pseudos {
+    color: $k7r_grey_dark;
+  }
+
+  &:hover {
+    background-color: $k7r_lime_dark;
+    @include link-pseudos {
+      color: $k7r_grey_dark;
+    }
+  }
+
+  &.btn-k7r-wt {
+    color: #FFF;
+  }
+}
+
+a.list-group-item-k7r { // Bootstrap doesn't seem to want me to recolor this thing
+  @include link-pseudos {
+    color: $k7r_grey_dark;
+  }
+
+  &:hover, &:active {
+    background-color: $k7r_lime_light;
+  }
+
+  &.active {
+    @include dark-on-bordered-lime;
+    @include link-pseudos {
+      color: $k7r_grey_dark;
+    }
+
+    &:hover, &:active {
+      @include bordered-light-lime;
+    }
+
+    span.badge {
+      color: $k7r_grey;
+    }
+  }
 }
 
 .secret-tunnel {
@@ -233,12 +244,4 @@ footer {
   &:active {
     background-color: $k7r_grey_light;
   }
-}
-
-.strong {
-  font-weight: bold;
-}
-
-.inline-block {
-  display: inline-block;
 }

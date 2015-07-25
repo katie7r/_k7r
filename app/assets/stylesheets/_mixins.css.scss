@@ -2,7 +2,7 @@
  *       Mixins       *
  **********************/
 
-// TODO: Organize!
+//************************* Type
 
 @mixin serif {
   font-family: 'Dustismo_Roman', serif;
@@ -21,6 +21,9 @@
     @content;
   }
 }
+
+
+//************************* Boxes
 
 @mixin margin-tb($tb: $top_bottom) {
   margin-top:    $tb;
@@ -42,6 +45,25 @@
   padding-right: $lr;
 }
 
+//************************* Color: BG + Border
+
+@mixin bordered-grey {
+  background-color: $k7r_grey;
+  border-color:     $k7r_grey_dark;
+}
+
+@mixin bordered-light-lime {
+  background-color: $k7r_lime_light;
+  border-color:     $k7r_lime;
+}
+
+@mixin bordered-lime {
+  background-color: $k7r_lime;
+  border-color:     $k7r_lime_dark;
+}
+
+//************************* Color: BG + Font
+
 @mixin dark-on-lime {
   background-color: $k7r_lime;
   color:            $k7r_grey_dark;
@@ -57,13 +79,10 @@
   color:            #FFF;
 }
 
-@mixin bordered-dark-on-lime {
-  @include dark-on-lime;
-  border-color: $k7r_lime_dark;
-}
+//************************* Color: BG + Border + Font
 
-// @mixin unflappable-link-color($link_color) {
-//   &, &:link, &:visited, &:hover, &:active {
-//     color: $k7r_grey_dark;
-//   }
-// }
+@mixin dark-on-bordered-lime {
+  background-color: $k7r_lime;
+  border-color:     $k7r_lime_dark;
+  color:            $k7r_grey_dark;
+}
