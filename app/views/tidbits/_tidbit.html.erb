@@ -1,21 +1,25 @@
 <article class='row tidbit'>
-  <div class=''>
+  <div class='col-md-10 col-md-offset-1'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        <h2 class='panel-title'>
+          <%= tidbit.title %>
+          <small>by <%= tidbit.author_shy_name %></small>
+          <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'a-k7r pull-right' if current_admin  %>
+        </h2>
+      </div>
 
-    <div class=''>
-      <h2 class=''><%= tidbit.title %></h2>
-      <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'btn' if current_admin  %>
+      <div class='panel-body'>
+        <p><%= tidbit.content %></p>
+      </div>
+
+      <% if tidbit.more_info? || tidbit.linked? %>
+        <div class='panel-footer'>
+          <span>More info:</span>
+          <%= link_to tidbit.more_info_link, tidbit.more_info_link, target: '_blank', class: 'a-k7r' if tidbit.linked? %>
+          <%= content_tag(:p, tidbit.more_info) if tidbit.more_info? %>
+        </div>
+        <% end %>
     </div>
-
-    <div class=''>
-      <p><%= tidbit.content %></p>
-    </div>
-
-    <div class=''>
-      <% if tidbit.more_info.present? %>
-        <span>More info: <%= link_to_if tidbit.linked?, tidbit.more_info, tidbit.more_info_link, target: '_blank' %></span>
-      <% end %>
-      <span class=''>Author: <%= tidbit.author_shy_name %></span>
-    </div>
-
   </div>
 </article>

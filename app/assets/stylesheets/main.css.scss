@@ -73,12 +73,78 @@ body > .container {
   padding: $top_bottom $left_right;
 }
 
+//************************* Layout: Tidbits
+
 #tidbits.jumbotron {
   @include padding-lr($top_bottom);
 
   h1 {
     font-size: 36px;
     margin-top: 0;
+  }
+
+
+  a.list-group-item { // Bootstrap doesn't seem to want me to recolor this thing
+    @include link-pseudos {
+      color: $k7r_grey_dark;
+    }
+
+    &:hover, &:active {
+      background-color: $k7r_lime_light;
+    }
+
+    &.active {
+      @include dark-on-bordered-lime;
+      @include link-pseudos {
+        color: $k7r_grey_dark;
+      }
+
+      &:hover, &:active {
+        @include bordered-light-lime;
+      }
+
+      span.badge {
+        color: $k7r_grey;
+      }
+    }
+  }
+}
+
+.tidbit {
+  .panel {
+    &, .panel-heading, .panel-footer {
+      border-color: $k7r_lime;
+    }
+
+    .panel-heading {
+      background-color: $k7r_lime_light;
+    }
+
+    .panel-footer {
+      background: transparent;
+    }
+
+    .panel-title {
+      @include sans-serif;
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    .panel-footer span {
+      @extend small;
+      font-weight: bold;
+    }
+
+    .panel-footer p:first-of-type {
+      margin-top: 5px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -201,28 +267,10 @@ footer {
   }
 }
 
-a.list-group-item-k7r { // Bootstrap doesn't seem to want me to recolor this thing
+.a-k7r {
   @include link-pseudos {
-    color: $k7r_grey_dark;
-  }
-
-  &:hover, &:active {
-    background-color: $k7r_lime_light;
-  }
-
-  &.active {
-    @include dark-on-bordered-lime;
-    @include link-pseudos {
-      color: $k7r_grey_dark;
-    }
-
-    &:hover, &:active {
-      @include bordered-light-lime;
-    }
-
-    span.badge {
-      color: $k7r_grey;
-    }
+    color: $k7r_lime_darker;
+    font-weight: bold;
   }
 }
 

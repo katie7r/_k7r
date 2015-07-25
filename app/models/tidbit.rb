@@ -55,6 +55,11 @@ class Tidbit < ActiveRecord::Base
     self.class.categories[self.category]
   end
 
+  # Returns whether the tidbit has text for more info
+  def more_info?
+    more_info.present?
+  end
+
   # Returns whether the tidbit has a link for more info
   def linked?
     more_info_link.present?

@@ -6,10 +6,8 @@
   </div>
 
   <div class='col-md-3 col-md-offset-1'>
-    <%= render 'tidbits_menu', currently: @category, tidbit_totals: @tidbit_totals %>
+    <%= render 'category_menu', currently: @category, tidbit_totals: @tidbit_totals %>
   </div>
 </div>
 
-<section id='tidbits'>
-  <%= render partial: 'tidbit', collection: @tidbits %>
-</section>
+<%= render partial: 'tidbit', collection: @tidbits %>
