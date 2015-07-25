@@ -1,6 +1,6 @@
 <a href='#main-content' class='sr-only sr-only-focusable'>Skip to main content</a>
 
-<nav class='navbar navbar-inverse navbar-static-top'>
+<nav class='navbar navbar-inverse navbar-static-top' id='top'>
   <div class='container'>
     <div class='navbar-header'>
       <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
@@ -27,6 +27,9 @@
         <li class='<%= 'active' if tidbits? %>'>
           <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
         </li>
+        <% if current_admin %>
+          <li class='dropdown<%= ' active' if admin? %>'><%= render 'layouts/admin_nav' %></li>
+        <% end %>
       </ul>
     </div>
   </div>

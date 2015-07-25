@@ -31,9 +31,13 @@ module ApplicationHelper
     params[:action] == 'portfolio'
   end
 
-  # Checks whether current page is tidbits(#any)
+  # Checks whether current page is tidbits#index
   def tidbits?
-    params[:controller] == 'tidbits'
+    params[:controller] == 'tidbits' && params[:action] == 'index'
+  end
+
+  def admin?
+    params[:controller] == 'tidbits' && params[:action] != 'index'
   end
 
 end

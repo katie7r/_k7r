@@ -32,8 +32,14 @@ $nav_height:    51px; // 50px + 1px border
 $footer_height: 50px;
 $intro_height:  35%;
 
+// HACKETY HACK DON'T TALK BACK
 $main_min: calc(100% - 0.75em - #{$nav_height} - #{$footer_height} + #{$top_bottom} + #{$top_bottom}); // main-content margin-top + footer margin-top
 $intro_main_min: calc(#{$main_min} - #{$intro_height});
+
+/******* Mixins *******/
+
+
+
 
 /******* General *******/
 
@@ -76,11 +82,13 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $k7r_lime_dark;
     color: $k7r_grey_dark;
   }
+
   &.btn-k7r-wt {
     color: #FFF;
   }
 }
 
+// Bootstrap doesn't seem to want me to recolor this thing
 a.list-group-item-k7r {
   &, &.active {
     &:link, &:visited, &:hover, &:active {
@@ -114,7 +122,9 @@ html, body {
 }
 
 .alert button.close {
-  margin-top: -0.1em;
+  float: left;
+  margin-top: -0.15em;
+  margin-right: 0.5em;
 }
 
 /* Nav */
@@ -167,11 +177,12 @@ body > .container {
   padding: $top_bottom $left_right;
 }
 
-.well {
-  padding-top: $top_bottom;
-  padding-bottom: $top_bottom;
+#tidbits.jumbotron {
+  padding-left: $top_bottom;
+  padding-right: $top_bottom;
 
-  & > h1:first-of-type {
+  h1 {
+    font-size: 36px;
     margin-top: 0;
   }
 }
@@ -182,6 +193,7 @@ footer {
   background-color: $k7r_grey_dark;
   height: $footer_height;
   overflow: hidden;
+  position: relative;
 
   & > .container {
     padding-left: (-$left_right);
@@ -226,15 +238,35 @@ footer {
       }
     }
   }
-
 }
 
-.social .btn-xs {
-  // border-radius: 50%;
+.btn-xs.btn-icon {
   padding-top: 3px;
   padding-bottom: 4px;
 }
 
+.secret-tunnel {
+  @extend .btn;
+  @extend .btn-xs;
+  @extend .btn-icon;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  &, &:link, &:visited, &:hover, &:active {
+    background-color: $k7r_grey_dark;
+    border-color: $k7r_grey_dark;
+    color: $k7r_grey_dark;
+  }
+  &:active {
+    background-color: $k7r_grey_light;
+  }
+}
+
 .strong {
   font-weight: bold;
+}
+
+.inline-block {
+  display: inline-block;
 }

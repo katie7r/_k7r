@@ -1,7 +1,6 @@
-<div class='row'>
-  <div class='col-md-8 well'>
-    <%= link_to 'Add Tidbit', new_tidbit_path, class: 'btn btn-k7r pull-right' if current_admin  %>
-    <h1>Tidbits! <small class='text-capitalize'>Viewing <%= @category %> Tidbits.</small></h1>
+<div class='row jumbotron' id='tidbits'>
+  <div class='col-md-8'>
+    <h1 class='inline-block'>Tidbits</h1>
 
     <p>Learn some stuff about things and junk!</p>
   </div>
@@ -9,7 +8,6 @@
   <div class='col-md-3 col-md-offset-1'>
     <%= render 'tidbits_menu', currently: @category, tidbit_totals: @tidbit_totals %>
   </div>
-
 </div>
 
 <section id='tidbits'>

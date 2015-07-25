@@ -11,9 +11,9 @@
   <%= render 'layouts/nav' %>
 
   <%= render 'static/intro' if home? %>
-  <div class='container<%= ' home' if home? %>' role='main'>
-    <%= render 'shared/flash_messages', flash: flash unless flash.empty? %>
 
+  <%= render 'shared/flash_messages', flash: flash unless flash.empty? %>
+  <div class='container<%= ' home' if home? %>' role='main'>
     <div id='main-content'>
       <%= yield %>
     </div>
