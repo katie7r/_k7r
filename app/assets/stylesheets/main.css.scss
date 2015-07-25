@@ -2,85 +2,49 @@
  *  I Don't Even Know  *
  ***********************/
 
-// TODO: Organize!
-
-/* Variables */
-// TODO: Move variables out to share
-// $k7r_lime_light:   #ABEE77;
-// $k7r_lime:         #99DD43;
-// $k7r_lime_dark:    #7FC23F;
-
-// $k7r_lime_light:   #AD7;
-// $k7r_lime:         #8B5;
-// $k7r_lime_dark:    #693;
-// $k7r_lime_darker:  #471;
-
-$k7r_lime_light:   #CDFEAB;
-$k7r_lime:         #ABEE77;
-$k7r_lime_dark:    #88CC43;
-$k7r_lime_darker:  #437734;
-
-$k7r_grey_lighter: #777;
-$k7r_grey_light:   #444;
-$k7r_grey:         #333;
-$k7r_grey_dark:    #222;
-
-$left_right: 15px;
-$top_bottom: 30px;
-
-$nav_height:    51px; // 50px + 1px border
-$footer_height: 50px;
-$intro_height:  35%;
-
-// HACKETY HACK DON'T TALK BACK
-$main_min: calc(100% - 0.75em - #{$nav_height} - #{$footer_height} + #{$top_bottom} + #{$top_bottom}); // main-content margin-top + footer margin-top
-$intro_main_min: calc(#{$main_min} - #{$intro_height});
-
-/******* Mixins *******/
-
-
-
+@import "variables";
+@import "mixins";
 
 /******* General *******/
 
 body {
-  font-family: 'Latin_Modern_Sans';
+  @include sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Dustismo_Roman';
+  @include serif;
 }
 
 /******* K7R Brandishing *******/
 
 // k7r logo-y text ~ katie[r].codes
 .k7r {
+  @include sans-serif;
   color: #FFF;
-  font-family: 'Latin_Modern_Sans';
 
   .k7r-mark {
+    @include special-sans;
+
     &:before { content: '['; }
     &:after  { content: ']'; }
     &:before, &:after { color: $k7r_grey_light; }
 
     color: $k7r_lime;
-    font-family: 'Latin_Modern_Sans_Demi_Cond';
   }
 
-  a, a:link, a:visited, a:hover, a:active {
-    color: #FFF;
+  a {
+    @include link-pseudos {
+      color: #FFF;
+    }
   }
 }
 
 // k7r buttons
 .btn-k7r {
-  background-color: $k7r_lime;
-  border-color: $k7r_lime_dark;
-  color: $k7r_grey_dark;
+  @include bordered-dark-on-lime;
 
   &:hover {
-    background-color: $k7r_lime_dark;
-    color: $k7r_grey_dark;
+    @include dark-on-dark-lime;
   }
 
   &.btn-k7r-wt {
@@ -91,21 +55,20 @@ h1, h2, h3, h4, h5, h6 {
 // Bootstrap doesn't seem to want me to recolor this thing
 a.list-group-item-k7r {
   &, &.active {
-    &:link, &:visited, &:hover, &:active {
+    @include link-pseudos {
       color: $k7r_grey_dark;
-    }
-
-    &:hover, &:active {
-      background-color: $k7r_lime_light;
     }
   }
 
+  &:hover, &:active {
+    background-color: $k7r_lime_light;
+  }
+
   &.active {
-    background-color: $k7r_lime;
-    border-color: $k7r_lime_dark;
-    // color: $k7r_grey_dark;
+    @include bordered-dark-on-lime;
 
     &:hover, &:active {
+      background-color: $k7r_lime_light;
       border-color: $k7r_lime;
     }
 
@@ -136,22 +99,22 @@ nav.navbar {
 
   li.active, .navbar-brand.active {
     &, &:hover {
-      background-color: $k7r_grey_dark;
-      color: #FFF;
+      @include white-on-dark;
     }
   }
 }
 
 .navbar-brand {
+  @include padding-lr;
   font-size: 1.75em;
-  padding: auto $left_right;
 }
 
 /* Content */
 
 #intro {
-  background-color: $k7r_grey_dark;
-  color: #FFF;
+  @include white-on-dark;
+  // background-color: $k7r_grey_dark;
+  // color: #FFF;
   min-height: 35%;
   height: auto;
   margin-bottom: 0;
@@ -178,8 +141,7 @@ body > .container {
 }
 
 #tidbits.jumbotron {
-  padding-left: $top_bottom;
-  padding-right: $top_bottom;
+  @include padding-lr($top_bottom);
 
   h1 {
     font-size: 36px;
@@ -192,30 +154,35 @@ body > .container {
 footer {
   background-color: $k7r_grey_dark;
   height: $footer_height;
-  overflow: hidden;
   position: relative;
 
   & > .container {
-    padding-left: (-$left_right);
+    max-height: 100%;
+    padding-left: $left_right;
+
+    a {
+      color: $k7r_grey_light;
+
+      &:hover {
+        color: $k7r_grey_lighter;
+        text-decoration: none;
+      }
+    }
   }
 
-  a {
-    color: $k7r_grey_light;
-
-    &:hover {
-      color: $k7r_grey_lighter;
-      text-decoration: none;
-    }
+  span.navbar-text {
+    @include margin-tb(0);
+    max-height: 100%;
+    padding-top: $left_right;
   }
 
   dl.dl-horizontal {
+    margin-bottom: 0;
     margin-left: (-$left_right);
 
-    dt, dd {
+    dt {
       display: inline-block;
       float: none;
-    }
-    dt {
       margin-left: $left_right;
       vertical-align: baseline;
       width: auto;
@@ -224,11 +191,14 @@ footer {
         margin-left: 0;
       }
     }
+
     dd {
+      display: inline-block;
+      float: none;
       margin-left: 0;
       vertical-align: top;
 
-      &.social ul {
+      & ul {
         padding: 0;
         margin: -2px 0 0;
 
@@ -249,15 +219,17 @@ footer {
   @extend .btn;
   @extend .btn-xs;
   @extend .btn-icon;
+
   position: absolute;
   bottom: 10px;
   right: 10px;
 
-  &, &:link, &:visited, &:hover, &:active {
+  @include link-pseudos {
     background-color: $k7r_grey_dark;
     border-color: $k7r_grey_dark;
     color: $k7r_grey_dark;
   }
+
   &:active {
     background-color: $k7r_grey_light;
   }

@@ -36,8 +36,9 @@ module ApplicationHelper
     params[:controller] == 'tidbits' && params[:action] == 'index'
   end
 
-  def admin?
-    params[:controller] == 'tidbits' && params[:action] != 'index'
-  end
+  # # Checks whether current page is an admin page
+  # def admin?
+  #   params[:controller] == 'tidbits' && params[:action] != 'index'
+  # end
 
 end

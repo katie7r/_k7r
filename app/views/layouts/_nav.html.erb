@@ -28,7 +28,7 @@
           <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
         </li>
         <% if current_admin %>
-          <li class='dropdown<%= ' active' if admin? %>'><%= render 'layouts/admin_nav' %></li>
+          <li class='dropdown'><%= render 'layouts/admin_nav' %></li>
         <% end %>
       </ul>
     </div>
