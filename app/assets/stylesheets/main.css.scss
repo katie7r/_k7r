@@ -151,13 +151,14 @@ body > .container {
 //************************* Layout: Footer
 
 footer {
+  @media (max-width: $screen-xs-max) { padding-top: 0.5em; }
+
   background-color: $k7r_grey_dark;
   min-height: $footer_height;
   position: relative;
 
   & > .container {
     max-height: 100%;
-    // padding-left: $left_right;
 
     a {
       color: $k7r_grey_light;
@@ -170,9 +171,12 @@ footer {
 
 
     span.navbar-text {
-      @include margin-tb(0);
+      margin: $left-right $left_right 0 0;
       max-height: 100%;
-      padding-top: $left_right;
+
+      &.navbar-right {
+        @media (max-width: $screen-xs-max) { margin-top: 1em; }
+      }
     }
 
     ul {
@@ -186,39 +190,6 @@ footer {
     }
   }
 
-
-  // dl.dl-horizontal {
-  //   margin-bottom: 0;
-  //   margin-left: (-$left_right);
-  //
-  //   dt {
-  //     display: inline-block;
-  //     float: none;
-  //     margin-left: $left_right;
-  //     vertical-align: baseline;
-  //     width: auto;
-  //
-  //     &:first-child {
-  //       margin-left: 0;
-  //     }
-  //   }
-  //
-  //   dd {
-  //     display: inline-block;
-  //     float: none;
-  //     margin-left: 0;
-  //     vertical-align: top;
-  //
-  //     & ul {
-  //       padding: 0;
-  //       margin: -2px 0 0;
-  //
-  //       li {
-  //         padding: 0;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 //************************* Miscellaneous

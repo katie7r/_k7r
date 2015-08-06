@@ -1,40 +1,44 @@
 <footer class='footer navbar-inverse navbar-static-bottom'>
   <div class='container'>
     <div class='row'>
-      <div class='col-md-3'>
-        <span class='navbar-text'>
-          <span class='strong'>Email me:</span>
-          katie.k7r<span class='hidden'>shhhh</span>@gmail.com
-        </span>
+      <div class='col-sm-8 col-xs-12'>
+        <div class='row'>
+          <div class='col-sm-5 col-xs-6'>
+            <span class='navbar-text'>
+              <span class='strong'>Contact:</span>
+              katie.k7r<span class='hidden'>shhhh</span>@gmail.com
+            </span>
+          </div>
+
+          <div class='col-sm-4 col-xs-6'>
+            <span class='navbar-text'>
+              <span class='strong'>Connect:</span>
+
+              <ul class='list-unstyled list-inline social'>
+                <li>
+                  <a href='https://github.com/katie7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
+                    <%= fa_icon('github', class: 'fa-fw') + sr('GitHub') %>
+                  </a>
+                </li>
+
+                <li>
+                  <a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
+                    <%= fa_icon('twitter', class: 'fa-fw') + sr('Twitter') %>
+                  </a>
+                </li>
+
+                <li>
+                  <a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
+                    <%= fa_icon('linkedin', class: 'fa-fw') + sr('LinkedIn') %>
+                  </a>
+                </li>
+              </ul>
+            </span>
+          </div>
+        </div>
       </div>
 
-      <div class='col-md-4'>
-        <span class='navbar-text'>
-          <span class='strong'>Find me elsewhere:</span>
-
-          <ul class='list-unstyled list-inline social'>
-            <li>
-              <a href='https://github.com/katie7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('github', class: 'fa-fw') + sr('GitHub') %>
-              </a>
-            </li>
-
-            <li>
-              <a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('twitter', class: 'fa-fw') + sr('Twitter') %>
-              </a>
-            </li>
-
-            <li>
-              <a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('linkedin', class: 'fa-fw') + sr('LinkedIn') %>
-              </a>
-            </li>
-          </ul>
-        </span>
-      </div>
-
-      <div class='col-md-2 col-md-offset-3'>
+      <div class='col-sm-4 col-xs-12'>
         <span class='navbar-text text-muted navbar-right'>
           <a href='#top'>Back to Top <%= fa_icon('level-up') %></a>
         </span>

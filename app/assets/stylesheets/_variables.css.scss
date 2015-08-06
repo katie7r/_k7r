@@ -34,6 +34,8 @@ $nav_height:    51px; // 50px + 1px border
 $footer_height: 50px;
 $intro_height:  35%;
 
+$screen-xs-max: 767px;
+
 //************************* HACKETY HACK DON'T TALK BACK
 
 $main_min: calc(100% - 0.75em - #{$nav_height} - #{$footer_height} + #{$top_bottom} + #{$top_bottom}); // main-content margin-top + footer margin-top
