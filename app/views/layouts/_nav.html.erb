@@ -18,12 +18,6 @@
 
     <div id='navbar' class='collapse navbar-collapse navbar-right'>
       <ul class='nav navbar-nav'>
-        <li class='<%= 'active' if about? %>'>
-          <%= link_to my_bio_path do %>Bio<%= sr('(current)') if about? %><% end %>
-        </li>
-        <li class='<%= 'active' if portfolio? %>'>
-          <%= link_to my_work_path do %>Work<%= sr('(current)') if portfolio? %><% end %>
-        </li>
         <li class='<%= 'active' if tidbits? %>'>
           <%= link_to tidbits_path do %>Tidbits<%= sr('(current)') if tidbits? %><% end %>
         </li>

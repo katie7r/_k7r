@@ -50,11 +50,6 @@ nav.navbar {
   @include white-on-dark;
   margin-bottom: 0;
   min-height: 35%;
-
-  .intro-image img {
-    height: auto;
-    max-width: 100%;
-  }
 }
 
 
@@ -71,6 +66,14 @@ body > .container {
 
 #main-content {
   padding: $top_bottom $left_right;
+}
+
+#bio-image {
+  @media (min-width: ($screen-xs-max + 1px)) { margin-top: $top_bottom; }
+}
+
+dd {
+  margin-bottom: 0.5em;
 }
 
 //************************* Layout: Tidbits
@@ -231,6 +234,13 @@ footer {
   }
 }
 
+.img-k7r {
+  height: auto;
+  max-width: 100%;
+  border-radius: 50%;
+  border: 5px solid $k7r_lime;
+}
+
 // k7r buttons
 .btn-k7r {
   @include bordered-lime;
@@ -253,7 +263,13 @@ footer {
 .a-k7r {
   @include link-pseudos {
     color: $k7r_lime_darker;
-    font-weight: bold;
+    // font-weight: bold;
+    text-decoration: underline;
+  }
+  &.a-k7r-inverse {
+    @include link-pseudos {
+      color: $k7r_lime;
+    }
   }
 }
 
