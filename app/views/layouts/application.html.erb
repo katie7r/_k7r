@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kathleen.codes</title>
+  <title>katier.codes</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel='shortcut icon' type='image/png' href='<%= asset_path 'favicon.png' %>'/>
+  <link rel='shortcut icon' type='image/png' href='<%= asset_url 'favicon.png' %>'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-<body>
+<body role='document'>
 
-<%= yield %>
+  <%= render 'layouts/nav' %>
+
+  <%= render 'static/intro' if home? %>
+
+  <%= render 'shared/flash_messages', flash: flash unless flash.empty? %>
+  <div class='container<%= ' home' if home? %>' role='main'>
+    <div id='main-content'>
+      <%= yield %>
+    </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>

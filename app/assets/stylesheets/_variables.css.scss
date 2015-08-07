@@ -1,0 +1,42 @@
+/***********************
+ *      Variables      *
+ ***********************/
+
+// $k7r_lime_light:   # ABEE77;
+// $k7r_lime:         # 99DD43;
+// $k7r_lime_dark:    # 7FC23F;
+
+// $k7r_lime_light:   # AD7;
+// $k7r_lime:         # 8B5;
+// $k7r_lime_dark:    # 693;
+// $k7r_lime_darker:  # 471;
+
+// $k7r_lime_darker:  # 437734;
+
+//************************* Colors
+
+$k7r_lime_light:   #CDFEAB;
+$k7r_lime:         #ABEE77;
+$k7r_lime_dark:    #88CC43;
+$k7r_lime_darker:  #52841F;
+
+$k7r_grey_lighter: #777;
+$k7r_grey_light:   #444;
+$k7r_grey:         #333;
+$k7r_grey_dark:    #222;
+
+//************************* Measurements
+
+$left_right: 15px;
+$top_bottom: 30px;
+
+$nav_height:    51px; // 50px + 1px border
+$footer_height: 50px;
+$intro_height:  35%;
+
+$screen-xs-max: 767px;
+
+//************************* HACKETY HACK DON'T TALK BACK
+
+$main_min: calc(100% - 0.75em - #{$nav_height} - #{$footer_height} + #{$top_bottom} + #{$top_bottom}); // main-content margin-top + footer margin-top
+$intro_main_min: calc(#{$main_min} - #{$intro_height});

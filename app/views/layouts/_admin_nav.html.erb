@@ -1,0 +1,7 @@
+
+<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Admin <span class='caret'></span></a>
+<ul class='dropdown-menu'>
+  <li><%= link_to 'Add New Tidbit', new_tidbit_path %></li>
+  <li role='separator' class='divider'></li>
+  <li><%= link_to "Logout #{current_admin.name}", destroy_admin_session_path, method: :delete %></li>
+</ul>

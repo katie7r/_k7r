@@ -1,0 +1,88 @@
+/**********************
+ *       Mixins       *
+ **********************/
+
+//************************* Type
+
+@mixin serif {
+  font-family: 'Dustismo_Roman', serif;
+}
+
+@mixin sans-serif {
+  font-family: 'Latin_Modern_Sans', sans-serif;
+}
+
+@mixin special-sans {
+  font-family: 'Latin_Modern_Sans_Demi_Cond', sans-serif;
+}
+
+@mixin link-pseudos {
+  &, &:link, &:visited, &:hover, &:active {
+    @content;
+  }
+}
+
+
+//************************* Boxes
+
+@mixin margin-tb($tb: $top_bottom) {
+  margin-top:    $tb;
+  margin-bottom: $tb;
+}
+
+@mixin margin-lr($lr: $left_right) {
+  margin-left:  $lr;
+  margin-right: $lr;
+}
+
+@mixin padding-tb($tb: $top_bottom) {
+  padding-top:    $tb;
+  padding-bottom: $tb;
+}
+
+@mixin padding-lr($lr: $left_right) {
+  padding-left:  $lr;
+  padding-right: $lr;
+}
+
+//************************* Color: BG + Border
+
+@mixin bordered-grey {
+  background-color: $k7r_grey;
+  border-color:     $k7r_grey_dark;
+}
+
+@mixin bordered-light-lime {
+  background-color: $k7r_lime_light;
+  border-color:     $k7r_lime;
+}
+
+@mixin bordered-lime {
+  background-color: $k7r_lime;
+  border-color:     $k7r_lime_dark;
+}
+
+//************************* Color: BG + Font
+
+@mixin dark-on-lime {
+  background-color: $k7r_lime;
+  color:            $k7r_grey_dark;
+}
+
+@mixin dark-on-dark-lime {
+  background-color: $k7r_lime_dark;
+  color:            $k7r_grey_dark;
+}
+
+@mixin white-on-dark {
+  background-color: $k7r_grey_dark;
+  color:            #FFF;
+}
+
+//************************* Color: BG + Border + Font
+
+@mixin dark-on-bordered-lime {
+  background-color: $k7r_lime;
+  border-color:     $k7r_lime_dark;
+  color:            $k7r_grey_dark;
+}

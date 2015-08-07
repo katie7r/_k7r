@@ -1,0 +1,13 @@
+<div class='row' id='tidbits'>
+  <div class='col-md-6 col-sm-6 col-xs-10 col-xs-offset-1'>
+    <h1>Tidbits</h1>
+
+    <h2><small>This is a collection of interesting things I have come across, including programming tricks, animal facts, and whatever other miscellaneous tidbits I feel are worth sharing. Enjoy!</small></h2>
+  </div>
+
+  <div class='col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1'>
+    <%= render 'category_menu', currently: @category, tidbit_totals: @tidbit_totals %>
+  </div>
+</div>
+
+<%= render partial: 'tidbit', collection: @tidbits %>
