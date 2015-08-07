@@ -1,11 +1,11 @@
-<article class='row tidbit'>
-  <div class='col-md-10 col-md-offset-1'>
+<div class='row tidbit'>
+  <div class='col-xs-10 col-xs-offset-1'>
     <div class='panel panel-default'>
       <div class='panel-heading'>
         <h2 class='panel-title'>
           <%= tidbit.title %>
-          <small>by <%= tidbit.author_shy_name %></small>
-          <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'a-k7r pull-right' if current_admin  %>
+          <%= content_tag(:small, tidbit.author_shy_name) unless tidbit.author_name == 'Katie Russ' %><!-- I am temporarily hiding author names, since all are authored by me -->
+          <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'a-k7r pull-right' if current_admin %>
         </h2>
       </div>
 
@@ -22,4 +22,4 @@
         <% end %>
     </div>
   </div>
-</article>
+</div>

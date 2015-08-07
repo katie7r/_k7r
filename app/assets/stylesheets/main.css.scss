@@ -78,14 +78,12 @@ dd {
 
 //************************* Layout: Tidbits
 
-#tidbits.jumbotron {
-  @include padding-lr($top_bottom);
+#tidbits {
 
   h1 {
     font-size: 36px;
     margin-top: 0;
   }
-
 
   a.list-group-item { // Bootstrap doesn't seem to want me to recolor this thing
     @include link-pseudos {
@@ -271,6 +269,10 @@ footer {
       color: $k7r_lime;
     }
   }
+}
+
+.k7r-color {
+  color: $k7r_lime;
 }
 
 .secret-tunnel {
