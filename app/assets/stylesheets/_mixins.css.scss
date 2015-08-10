@@ -5,15 +5,15 @@
 //************************* Type
 
 @mixin serif {
-  font-family: 'Dustismo_Roman', serif;
+  font-family: 'Dustismo_Roman', Georgia, serif;
 }
 
 @mixin sans-serif {
-  font-family: 'Latin_Modern_Sans', sans-serif;
+  font-family: 'Latin_Modern_Sans', 'Lucida Grande', Calibri, sans-serif;
 }
 
 @mixin special-sans {
-  font-family: 'Latin_Modern_Sans_Demi_Cond', sans-serif;
+  font-family: 'Latin_Modern_Sans_Demi_Cond', Calibri, 'Lucida Grande', sans-serif;
 }
 
 @mixin link-pseudos {
