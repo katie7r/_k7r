@@ -5,7 +5,7 @@
         <h2 class='panel-title'>
           <%= tidbit.title %>
           <%= content_tag(:small, tidbit.author_shy_name) unless tidbit.author_name == 'Katie Russ' %><!-- I am temporarily hiding author names, since all are authored by me -->
-          <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'a-k7r pull-right' if current_admin %>
+          <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'pull-right' if current_admin %>
         </h2>
       </div>
 
@@ -16,7 +16,7 @@
       <% if tidbit.more_info? || tidbit.linked? %>
         <div class='panel-footer'>
           <span>More info:</span>
-          <%= link_to tidbit.more_info_link, tidbit.more_info_link, target: '_blank', class: 'a-k7r' if tidbit.linked? %>
+          <%= link_to tidbit.more_info_link, tidbit.more_info_link, target: '_blank' if tidbit.linked? %>
           <%= content_tag(:p, tidbit.more_info) if tidbit.more_info? %>
         </div>
         <% end %>

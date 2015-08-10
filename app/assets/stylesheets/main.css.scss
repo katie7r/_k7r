@@ -258,7 +258,7 @@ footer {
   }
 }
 
-.a-k7r {
+.a-k7r, #main-content a {
   @include link-pseudos {
     color: $k7r_lime_darker;
     // font-weight: bold;
