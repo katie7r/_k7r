@@ -7,10 +7,13 @@
 #  content        :text             not null
 #  more_info      :string(255)
 #  more_info_link :string(255)
-#  author_id      :integer
+#  admin_id       :integer
 #  created_at     :datetime
 #  updated_at     :datetime
 #  category       :integer          default(0), not null
+#  published      :boolean          default(FALSE)
+#  published_at   :datetime
+#  author_name    :string(255)      default("")
 #
 
 require 'test_helper'

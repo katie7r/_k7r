@@ -30,7 +30,7 @@
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
 
-  has_many :tidbits, foreign_key: 'author_id'
+  has_many :tidbits
 
   # Gives admin user's full name
   def name
@@ -38,6 +38,7 @@ class Admin < ActiveRecord::Base
   end
 
   # Gives admin user's first name and last initial
+  # TODO: remove if I'm not going to use it anywhere
   def shy_name
     "#{first_name} #{last_name[0]}."
   end

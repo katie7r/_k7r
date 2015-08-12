@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714200212) do
+ActiveRecord::Schema.define(version: 20150812232330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,14 +40,17 @@ ActiveRecord::Schema.define(version: 20150714200212) do
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
 
   create_table "tidbits", force: true do |t|
-    t.string   "title",                      null: false
-    t.text     "content",                    null: false
+    t.string   "title",                          null: false
+    t.text     "content",                        null: false
     t.string   "more_info"
     t.string   "more_info_link"
-    t.integer  "author_id"
+    t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category",       default: 0, null: false
+    t.integer  "category",       default: 0,     null: false
+    t.boolean  "published",      default: false
+    t.datetime "published_at"
+    t.string   "author_name",    default: ""
   end
 
 end
