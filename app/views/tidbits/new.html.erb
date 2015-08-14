@@ -1,12 +1,13 @@
-<h1>Create a New Tidbit</h1>
-<!-- <p>
-  Tips for good tidbits:
-  <ul>
-    <li>Make sure they are fun</li>
-    <li>Keep them short and sweet</li>
-    <li>Try not to embarass yourself</li>
-    <li>ALWAYS CITE SOMETHING, FOR GOD'S SAKE</li>
-  </ul>
-</p> -->
+<div class='row' id='tidbits'>
+  <div class='col-md-6 col-sm-6 col-xs-10 col-xs-offset-1'>
+    <h1>Submit a Tidbit</h1>
+
+    <h2><small>Thanks for your interest in contributing a tidbit! I am maintaining an approval system for now so that I can double check the format and such for each tidbit, so your submission will not appear immediately.</small></h2>
+  </div>
+
+  <div class='col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1'>
+    <%= render 'category_menu', currently: @category, tidbit_totals: @tidbit_totals %>
+  </div>
+</div>
 
 <%= render 'form', tidbit: @tidbit %>

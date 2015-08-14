@@ -4,7 +4,7 @@
       <div class='panel-heading'>
         <h2 class='panel-title'>
           <%= tidbit.title %>
-          <%= content_tag(:small, tidbit.author_shy_name) unless tidbit.author_name == 'Katie Russ' %><!-- I am temporarily hiding author names, since all are authored by me -->
+          <small><%= tidbit.author %></small>
           <%= link_to 'Edit Tidbit', edit_tidbit_path(tidbit), class: 'pull-right' if current_admin %>
         </h2>
       </div>

@@ -1,15 +1,19 @@
 class TidbitsController < ApplicationController
-  before_filter :restrict_to_admin, except: [:index]
-  before_filter :load_tidbit, only: [:edit, :update]
+  before_filter :restrict_to_admin, :load_tidbit, only: [:edit, :update]
 
   def index
     @tidbit_totals = Tidbit.get_totals
-    if params[:category] && Tidbit.categories.keys.include?(params[:category])
-      @category = params[:category]
-      @tidbits  = Tidbit.with_category(@category).in_order
+
+    @category = Tidbit.has_category?(params[:category]) ? params[:category] : 'all'
+
+    if @category != 'all'
+      @tidbits = Tidbit.with_category(@category).in_order
     else
-      @category = 'all'
-      @tidbits  = Tidbit.in_order
+      @tidbtis = Tidbit.in_order
+    end
+
+    if current_admin && params[:unpublished]
+      @tidbits = @tidbits.unpublished
     end
   end
 
@@ -20,7 +24,7 @@ class TidbitsController < ApplicationController
   def create
     @tidbit = current_admin.tidbits.build(tidbit_params)
     if @tidbit.save!
-      flash[:success] = 'Tidbit successfully created.'
+      flash[:success] = 'Thanks for submitting a tidbit!'
       redirect_to tidbits_path and return
     else
       flash.now[:error] = 'There was an issue creating the tidbit.'
