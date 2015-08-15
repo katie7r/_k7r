@@ -19,7 +19,8 @@ class Tidbit < ActiveRecord::Base
   belongs_to :author, class_name: 'Admin'
 
   validates :author_id, :category, :content, :title, presence: true
-  # TODO: validates :content, length: (less than something)
+  validate  :content_length_cannot_be_greater_than_100_words,
+            :title_length_cannot_be_greater_than_10_words
 
   delegate :name, :shy_name, to: :author, prefix: true
 
@@ -63,6 +64,20 @@ class Tidbit < ActiveRecord::Base
   # Returns whether the tidbit has a link for more info
   def linked?
     more_info_link.present?
+  end
+
+  private
+
+  def content_length_cannot_be_greater_than_100_words # avoiding the "100 words or [less vs fewer]" issue
+    if content.split(' ').size > 100
+      errors.add(:content, 'cannot be longer than 100 words')
+    end
+  end
+
+  def title_length_cannot_be_greater_than_10_words
+    if title.split(' ').size > 10
+      errors.add(:title, 'cannot be longer than 10 words')
+    end
   end
 
 end
