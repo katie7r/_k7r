@@ -147,6 +147,11 @@ dd {
     p:last-child {
       margin-bottom: 0;
     }
+
+    code {
+      background-color: $k7r_lime_lighter;
+      color: $k7r_lime_darker;
+    }
   }
 }
 

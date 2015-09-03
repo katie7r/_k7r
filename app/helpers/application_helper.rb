@@ -19,6 +19,26 @@ module ApplicationHelper
     "<span class='k7r-color'>katie.k7r<span class='hidden'>shhhh</span>@gmail.com</span>".html_safe
   end
 
+  # Markdown!
+  def markdown(text)
+    options = {
+      filter_html:     true,
+      hard_wrap:       true,
+      link_attributes: { target: '_blank' },
+      space_after_headers: true
+    }
+
+    extensions = {
+      autolink:           true,
+      superscript:        true
+    }
+
+    @renderer ||= Redcarpet::Render::HTML.new(options)
+    @markdown ||= Redcarpet::Markdown.new(@renderer, extensions)
+
+    "<div class='markdown'>#{@markdown.render(text)}</div>".html_safe
+  end
+
 ############# Nav
 
   # Checks whether current page is (static#)home
