@@ -13,19 +13,19 @@
             Connect:
             <li>
               <a href='https://github.com/katie7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('github', class: 'fa-fw') + sr('GitHub') %>
+                <%= icon('soc-gh', 'GitHub') %>
               </a>
             </li>
 
             <li>
               <a href='https://twitter.com/katie_k7r' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('twitter', class: 'fa-fw') + sr('Twitter') %>
+                <%= icon('soc-tw', 'Twitter') %>
               </a>
             </li>
 
             <li>
               <a href='https://www.linkedin.com/pub/kathleen-russ/b1/377/49a' target='_blank' class='btn btn-k7r btn-xs btn-icon'>
-                <%= fa_icon('linkedin', class: 'fa-fw') + sr('LinkedIn') %>
+                <%= icon('soc-li', 'LinkedIn') %>
               </a>
             </li>
           </ul>
@@ -40,11 +40,11 @@
 
       <div class='col-md-2 col-sm-3 col-xs-5'>
         <span class='navbar-text text-muted navbar-right'>
-          <a href='#top'>Back to Top <%= fa_icon('level-up') %></a>
+          <a href='#top'><%= icon('up-small', 'Up Arrow') %>Back to Top</a>
         </span>
       </div>
     </div>
 
-    <%= link_to fa_icon('user-secret', class: 'fa-fw'), new_admin_session_path, class: 'secret-tunnel' unless current_admin %>
+    <%= link_to icon('lock-filled', 'Open Lock'), new_admin_session_path, class: 'secret-tunnel' unless current_admin %>
   </div>
 </footer>

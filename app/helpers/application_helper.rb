@@ -14,6 +14,10 @@ module ApplicationHelper
     "<span class='sr-only'>#{sr_text}</span>".html_safe
   end
 
+  def icon(icon_name, sr_text)
+    "<i class='icon-#{icon_name}'>#{sr(sr_text)}</i>".html_safe
+  end
+
   # Markdown!
   def markdown(text)
     options = {
