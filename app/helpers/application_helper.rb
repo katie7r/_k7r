@@ -14,11 +14,6 @@ module ApplicationHelper
     "<span class='sr-only'>#{sr_text}</span>".html_safe
   end
 
-  # Outputs my email address with the top-secret, bot-interruption technique applied
-  def my_email
-    "<span class='k7r-color'>katie.k7r<span class='hidden'>shhhh</span>@gmail.com</span>".html_safe
-  end
-
   # Markdown!
   def markdown(text)
     options = {
@@ -65,5 +60,12 @@ module ApplicationHelper
   # def admin?
   #   params[:controller] == 'tidbits' && params[:action] != 'index'
   # end
+
+############# Misc
+
+  # Outputs my email address with the top-secret, bot-interruption technique applied
+  def my_email
+    "<span class='k7r-color'>katie.k7r<span class='hidden'>shhhh</span>@gmail.com</span>".html_safe
+  end
 
 end
