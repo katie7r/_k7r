@@ -17,9 +17,11 @@
         <div class='panel-footer'>
           <span>More info:</span>
           <%= link_to tidbit.more_info_link, tidbit.more_info_link, target: '_blank' if tidbit.linked? %>
-          <%= content_tag(:p, tidbit.more_info) if tidbit.more_info? %>
+          <% if tidbit.more_info? %>
+            <p><%= markdown tidbit.more_info %></p>
+          <% end %>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

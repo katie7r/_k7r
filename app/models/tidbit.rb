@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  title          :string(255)      not null
 #  content        :text             not null
-#  more_info      :string(255)
+#  more_info      :text
 #  more_info_link :string(255)
 #  author_id      :integer
 #  created_at     :datetime
@@ -23,6 +23,8 @@ class Tidbit < ActiveRecord::Base
             :title_length_cannot_be_greater_than_10_words
 
   delegate :name, :shy_name, to: :author, prefix: true
+
+  before_validation :strip_whitespace
 
   #========================= Class Methods
 
@@ -78,6 +80,13 @@ class Tidbit < ActiveRecord::Base
     if title.split(' ').size > 10
       errors.add(:title, 'cannot be longer than 10 words')
     end
+  end
+
+  def strip_whitespace
+    self.title          = self.title.strip
+    self.content        = self.content.strip
+    self.more_info_link = self.more_info_link.strip
+    self.more_info      = self.more_info.strip
   end
 
 end
