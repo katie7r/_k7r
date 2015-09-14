@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+gem 'rails', '~>4.1'
 
 gem 'pg'
 gem 'thin'
@@ -22,6 +22,7 @@ gem 'redcarpet'
 # gem 'letter_opener'
 
 group :production do
+  gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
 
