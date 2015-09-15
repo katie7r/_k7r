@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 gem 'autoprefixer-rails'
 gem 'devise'
+gem 'faker'
 gem 'redcarpet'
 # gem 'capybara'
 # gem 'letter_opener'
