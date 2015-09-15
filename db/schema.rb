@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912043740) do
+ActiveRecord::Schema.define(version: 20150915162558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: true do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "first_name",                       null: false
     t.string   "last_name",                        null: false
     t.string   "email",               default: "", null: false
@@ -39,15 +39,16 @@ ActiveRecord::Schema.define(version: 20150912043740) do
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true, using: :btree
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
 
-  create_table "tidbits", force: true do |t|
-    t.string   "title",                      null: false
-    t.text     "content",                    null: false
+  create_table "tidbits", force: :cascade do |t|
+    t.string   "title",                          null: false
+    t.text     "content",                        null: false
     t.text     "more_info"
     t.string   "more_info_link"
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category",       default: 0, null: false
+    t.integer  "category",       default: 0,     null: false
+    t.boolean  "published",      default: false
   end
 
 end

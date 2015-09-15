@@ -17,7 +17,11 @@ module TidbitsHelper
   end
 
   # Returns the path for the given category of tidbits
-  def tidbits_path_for(category)
-    category == 'all' ? tidbits_path : category_tidbits_path(category)
+  def tidbits_path_for(category, published = true)
+    if category == 'all'
+      published ? tidbits_path : unpublished_tidbits_path
+    else
+      published ? categorized_tidbits_path(category) : unpublished_categorized_tidbits_path(category)
+    end
   end
 end

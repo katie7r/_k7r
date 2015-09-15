@@ -3,14 +3,15 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  title          :string(255)      not null
+#  title          :string           not null
 #  content        :text             not null
 #  more_info      :text
-#  more_info_link :string(255)
+#  more_info_link :string
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
 #  category       :integer          default(0), not null
+#  published      :boolean          default(FALSE)
 #
 
 class Tidbit < ActiveRecord::Base
@@ -49,6 +50,16 @@ class Tidbit < ActiveRecord::Base
   # Gets tidbits with given category id
   def self.with_category_id(category_id)
     where(category: category_id)
+  end
+
+  # Gets published tidbits
+  def self.published
+    where(published: true)
+  end
+
+  # Gets unpublished tidbits
+  def self.unpublished
+    where(published: false)
   end
 
   #========================= Instance Methods
