@@ -1,4 +1,4 @@
-admin = Admin.where(email: 'katie@test.org', first_name: 'Katie', last_name: 'Russ', username: 'kt7r').first_or_initialize
+admin = Admin.where(email: 'katie@test.org', first_name: 'Katie', last_name: 'Russ', username: 'katie').first_or_initialize
 admin.password = admin.password_confirmation = 'testing123'
 admin.save!
 
