@@ -1,13 +1,13 @@
 <header>
   <div class='row' id='tidbits'>
     <div class='col-sm-6 col-xs-10 col-xs-offset-1'>
-      <h1>Tidbits</h1>
+      <h1>Tidbits<%= content_tag(:small, ' (Unpublished)') if @unpublished %></h1>
 
       <h2><small>This is a collection of interesting things I have come across, including programming tricks, animal facts, and whatever other miscellaneous tidbits I feel are worth sharing, each in under a hundred words. Enjoy!</small></h2>
     </div>
 
     <div class='col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1'>
-      <%= render 'category_menu', currently: @category, tidbit_totals: @tidbit_totals %>
+      <%= render 'category_menu', currently: @category, tidbit_totals: @tidbit_totals, published: !@unpublished %>
     </div>
   </div>
 </header>

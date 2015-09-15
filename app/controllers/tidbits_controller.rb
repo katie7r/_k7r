@@ -3,13 +3,17 @@ class TidbitsController < ApplicationController
   before_filter :load_tidbit, only: [:edit, :update]
 
   def index
-    @tidbit_totals = Tidbit.get_totals
+    @unpublished = params[:unpublished] && current_admin
+
+    all_tidbits = @unpublished ? Tidbit.unpublished : Tidbit.published
+    @tidbit_totals = all_tidbits.get_totals
+
     if params[:category] && Tidbit.categories.keys.include?(params[:category])
       @category = params[:category]
-      @tidbits  = Tidbit.with_category(@category).in_order
+      @tidbits  = all_tidbits.with_category(@category).in_order
     else
       @category = 'all'
-      @tidbits  = Tidbit.in_order
+      @tidbits  = all_tidbits.in_order
     end
   end
 
@@ -21,7 +25,7 @@ class TidbitsController < ApplicationController
     @tidbit = current_admin.tidbits.build(tidbit_params)
     if @tidbit.save!
       flash[:success] = 'Tidbit successfully created.'
-      redirect_to tidbits_path and return
+      redirect_to tidbit_redirect and return
     else
       flash.now[:error] = 'There was an issue creating the tidbit.'
       render :new and return
@@ -34,7 +38,7 @@ class TidbitsController < ApplicationController
   def update
     if @tidbit.update_attributes!(tidbit_params)
       flash[:success] = 'Tidbit successfully updated.'
-      redirect_to tidbits_path and return
+      redirect_to tidbit_redirect and return
     else
       flash.now[:error] = 'There was an issue updating the tidbit.'
       render :edit and return
@@ -48,6 +52,11 @@ class TidbitsController < ApplicationController
   end
 
   def tidbit_params
-    params.require(:tidbit).permit(:category, :content, :more_info, :more_info_link, :title)
+    params.require(:tidbit).permit(:category, :content, :more_info, :more_info_link, :published, :title)
   end
+
+  def tidbit_redirect
+    @tidbit.published? ? tidbits_path : unpublished_tidbits_path
+  end
+
 end
