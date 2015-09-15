@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # get 'my/work' => 'static#portfolio'
 
   resources :tidbits, except: [:show, :destroy]
-  get 'tidbits/:category', to: 'tidbits#index', as: :category_tidbits
+  resources :tidbits, only: [] do # :(
+    collection do
+      get '/unpublished/:category', to: 'tidbits#index', as: :unpublished_categorized, defaults: { unpublished: true }
+      get '/unpublished',           to: 'tidbits#index', as: :unpublished,             defaults: { unpublished: true }
+      get '/:category',             to: 'tidbits#index', as: :categorized
+    end
+  end
 
 end

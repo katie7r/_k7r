@@ -3,14 +3,15 @@
 # Table name: tidbits
 #
 #  id             :integer          not null, primary key
-#  title          :string(255)      not null
+#  title          :string           not null
 #  content        :text             not null
 #  more_info      :text
-#  more_info_link :string(255)
+#  more_info_link :string
 #  author_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
 #  category       :integer          default(0), not null
+#  published      :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
