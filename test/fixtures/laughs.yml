@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: laughs
+#
+#  id          :integer          not null, primary key
+#  setup       :text             default("")
+#  content     :text             not null
+#  followup    :text             default("")
+#  source_link :string           default("")
+#  published   :boolean          default(FALSE)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  context: MyText
+  content: MyText
+  punchline: MyText
+  published: false
+
+two:
+  context: MyText
+  content: MyText
+  punchline: MyText
+  published: false

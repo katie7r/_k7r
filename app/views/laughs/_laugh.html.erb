@@ -1,0 +1,26 @@
+<div class='row laugh'>
+  <div class='col-xs-10 col-xs-offset-1'>
+    <div class='panel panel-default'>
+      <!-- <% if laugh.setup || current_admin %>
+        <div class='panel-heading'>
+          <%= markdown laugh.setup %>
+        </div>
+      <% end %> -->
+
+      <div class='panel-body'>
+        <%= link_to 'Edit Laugh', edit_laugh_path(laugh), class: 'pull-right' if current_admin %>
+        <p><%= markdown laugh.content %></p>
+      </div>
+
+      <% if laugh.followup || laugh.linked? %>
+        <div class='panel-footer'>
+          <% if laugh.followup %>
+            <p><%= markdown laugh.followup %></p>
+          <% end %>
+
+          <%= link_to icon('lightbulb', 'Joke Source'), laugh.source_link, target: '_blank' if laugh.linked? %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

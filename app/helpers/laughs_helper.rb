@@ -1,0 +1,2 @@
+module LaughsHelper
+end

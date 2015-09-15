@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # get 'my/bio'  => 'static#about'
   # get 'my/work' => 'static#portfolio'
 
+  resources :laughs, except: [:show, :destroy]
+  get '/laughs/unpublished', to: 'laughs#index', as: :unpublished_laughs, defaults: { unpublished: true }
+
   resources :tidbits, except: [:show, :destroy]
   resources :tidbits, only: [] do # :(
     collection do

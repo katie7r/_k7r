@@ -1,20 +1,21 @@
 class TidbitsController < ApplicationController
   before_filter :restrict_to_admin, except: [:index]
-  before_filter :load_tidbit, only: [:edit, :update]
+  before_filter :set_tidbit, only: [:edit, :update]
 
   def index
     @unpublished = params[:unpublished] && current_admin
 
-    all_tidbits = @unpublished ? Tidbit.unpublished : Tidbit.published
-    @tidbit_totals = all_tidbits.get_totals
+    tidbits = @unpublished ? Tidbit.unpublished : Tidbit.published
+    @tidbit_totals = tidbits.get_totals
 
     if params[:category] && Tidbit.categories.keys.include?(params[:category])
       @category = params[:category]
-      @tidbits  = all_tidbits.with_category(@category).in_order
+      tidbits   = tidbits.with_category(@category)
     else
       @category = 'all'
-      @tidbits  = all_tidbits.in_order
     end
+
+    @tidbits = tidbits.in_order
   end
 
   def new
@@ -36,7 +37,7 @@ class TidbitsController < ApplicationController
   end
 
   def update
-    if @tidbit.update_attributes!(tidbit_params)
+    if @tidbit.update(tidbit_params)
       flash[:success] = 'Tidbit successfully updated.'
       redirect_to tidbit_redirect and return
     else
@@ -47,7 +48,7 @@ class TidbitsController < ApplicationController
 
   private
 
-  def load_tidbit
+  def set_tidbit
     @tidbit = Tidbit.find(params[:id])
   end
 

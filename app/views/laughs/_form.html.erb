@@ -1,0 +1,48 @@
+<%= form_for laugh, html: { class: 'form-horizontal' } do |f| %>
+
+  <div class='form-group'>
+    <%= f.label :setup, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_area :setup, class: 'form-control', rows: 3 %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :content, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_area :content, class: 'form-control', rows: 3 %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :followup, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_area :followup, class: 'form-control', rows: 3 %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :source_link, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field :source_link, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='col-sm-offset-2 col-sm-10'>
+      <div class='checkbox'>
+        <%= f.label :published do %>
+          <%= f.check_box :published %>
+          Publish
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='col-sm-offset-2 col-sm-10'>
+      <%= f.submit class: 'btn btn-k7r' %>
+    </div>
+  </div>
+
+<% end %>

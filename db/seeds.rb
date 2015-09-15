@@ -22,7 +22,7 @@ tidbits = []
   tidbit[:title]     = "#{tidbit[:category].capitalize}: #{Faker::Name.title} [#{tidbit[:published] ? 'Pub' : 'Unpub'}]"
   tidbit[:content]   = content
   tidbit[:more_info] = Faker::Lorem.paragraph(3, true, 7)
-  tidbit[:more_info_link] = Faker::Internet.url('google.com')
+  tidbit[:more_info_link] = Faker::Internet.url('en.wikipedia.org/wiki')
 
   tidbits << tidbit
 end
